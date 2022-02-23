@@ -1,0 +1,35 @@
+//mobile padding
+$mobile-component-padding: 5vw; // 16px
+$mobile-pre-heading-padding: 7.5vw;  // 24px
+$mobile-post-heading-padding: 5vw;
+//tablet padding
+$tablet-component-padding: 1.5rem;
+$tablet-pre-heading-padding: 2.25rem;
+$tablet-post-heading-padding: 1.5rem;
+
+//nav logo details
+$logo-max-height: 1.563rem; // 25px
+$logo-max-width: 7.5rem; //120px
+
+//button details
+$button-height: 2.5rem; //40px
+$button-mobile-width: 100%;
+$button-tablet-min-width: 9.375rem; //150px
+$button-tablet-horizontal-padding: 2rem; //32px
+$button-radius: 0.25rem; //4px
+
+//form details
+$form-mobile-height: 2.25rem; //36px
+$form-tablet-height: 2.5rem; //40px
+$form-min-width: 15rem; //240px
+$form-width: 100%;
+$form-radius: 0.25rem; //4px
+$form-mobile-padding: 0.75rem; //12px
+$form-tablet-padding: 1rem; //16px
+$form-label-space: 0.25rem; //4px
+$form-border-default-color: mercury;
+$form-border-default-width: 0.063rem; //1px
+$form-border-active-color: $brainFlix-Blue;
+$form-border-active-width: 0.125rem; //2px
+$form-border-error-color: $brainFlix-Blue;
+$form-border-error-width: 0.063rem; //1px
