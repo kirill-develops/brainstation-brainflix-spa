@@ -1,0 +1,23 @@
+//primary colors
+$brainFlix-black: #323232;
+$brainFlix-blue: #0095FF;
+$silver: #AFAFAF;
+$white: #FFF;
+
+//secondary colors
+$brainFlix-darkBlack: #000;
+$brainFlix-darkBlue: #0065AD;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
+
+//global
+$primary-font-color: $brainFlix-black;
+$secondary-font-color: $silver;
+
+//specific
+$cta-background-color: $brainFlix-blue;
+$cta-hover-color: $brainFlix-darkBlue;
+$cta-text-color: $white;
+$label-color: $silver;
+$divider-color: $mercury;
+$video-color: $brainFlix-darkBlack;

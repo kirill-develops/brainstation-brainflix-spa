@@ -27,9 +27,10 @@ $form-radius: 0.25rem; //4px
 $form-mobile-padding: 0.75rem; //12px
 $form-tablet-padding: 1rem; //16px
 $form-label-space: 0.25rem; //4px
-$form-border-default-color: mercury;
+$form-background-color: $alabaster;
+$form-border-default-color: $mercury;
 $form-border-default-width: 0.063rem; //1px
-$form-border-active-color: $brainFlix-Blue;
+$form-border-active-color: $brainFlix-blue;
 $form-border-active-width: 0.125rem; //2px
-$form-border-error-color: $brainFlix-Blue;
+$form-border-error-color: #D22D2D;
 $form-border-error-width: 0.063rem; //1px
