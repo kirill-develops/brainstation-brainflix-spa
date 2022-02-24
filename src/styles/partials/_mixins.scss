@@ -7,7 +7,7 @@
   margin: $mobile-component-padding;
 }
 @mixin block-tablet-padding {
-  margin: $tablet-component-padding;
+  margin: $mobile-component-padding $tablet-component-padding;
 }
 @mixin element-mobile-padding {
   margin: $mobile-component-padding auto;
