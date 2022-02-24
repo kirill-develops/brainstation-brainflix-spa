@@ -1,4 +1,3 @@
-import React from "react";
 import avatar from "../../assets/Images/Mohan-muruge.jpg"
 
 const CommentInput = (props) => {

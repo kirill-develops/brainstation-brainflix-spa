@@ -1,4 +1,3 @@
-import React from "react";
 import './Media.scss';
 
 const Media = (props) => { 

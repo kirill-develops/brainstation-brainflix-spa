@@ -1,4 +1,3 @@
-import React from "react";
 import './Details.scss';
 
 const Details = (props) => {
