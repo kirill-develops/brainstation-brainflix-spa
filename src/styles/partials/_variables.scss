@@ -9,6 +9,14 @@ $tablet-component-padding: 1.5rem; //24px
 $tablet-pre-heading-padding: 2.25rem; //36px
 $tablet-post-heading-padding: 1.5rem; //24px
 
+//colors, global
+$primary-font-color: $brainFlix-black;
+$secondary-font-color: $silver;
+//colors, specific
+$label-color: $silver;
+$divider-color: $mercury;
+$video-color: $brainFlix-darkBlack;
+
 //nav logo details
 $logo-max-height: 1.563rem; // 25px
 $logo-max-width: 7.5rem; //120px
@@ -28,9 +36,9 @@ $form-mobile-height: 2.25rem; //36px
 $form-tablet-height: 2.5rem; //40px
 $form-min-width: 15rem; //240px
 $form-width: 100%;
-$form-border-radius: 0.25rem; //4px
 $form-mobile-padding: 0.75rem; //12px
 $form-tablet-padding: 1rem; //16px
+$form-border-radius: 0.25rem; //4px
 $form-label-space: 0.25rem; //4px
 $form-background-color: $alabaster;
 $form-border-default-color: $mercury;

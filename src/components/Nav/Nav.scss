@@ -68,7 +68,7 @@
 
   &__button {
     @include button;
-    @include label-button-mobile;
+    @include font-label-button-mobile;
     background-image: url('../../assets/Icons/upload.svg');
 
     &--tablet {
@@ -76,7 +76,7 @@
 
       @include tablet {
         @include button;
-        @include label-button-mobile;
+        @include font-label-button-tablet;
         display: inline-block;
         background-image: url('../../assets/Icons/upload.svg');
         width: $cta-tablet-min-width;
