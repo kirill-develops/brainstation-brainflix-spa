@@ -18,6 +18,7 @@
       vertical-align: middle;
     }
   };
+  
   &__form {
     box-sizing: border-box;
     width: 100%;
@@ -28,6 +29,7 @@
       justify-content: flex-end;
     }
   };
+
   &__search {
     @include form;
     @include block-mobile-padding;
@@ -41,6 +43,7 @@
       margin: 0 $tablet-component-padding;
     }
   };
+
   &__avatar {
     @include avatar;
     vertical-align: middle;
@@ -49,6 +52,7 @@
       margin: 0 $tablet-component-padding 0 0;
     }
   };
+
   &__button {
     @include button;
     @include label-button-mobile;
@@ -59,9 +63,9 @@
       padding: 0 $cta-tablet-horizontal-padding;
     }
   };
+
   @include tablet {
     @include block-tablet-padding;
-    width: 100%;
     flex-wrap: nowrap;
     justify-content: space-between;
   }

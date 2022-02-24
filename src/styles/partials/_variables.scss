@@ -1,13 +1,13 @@
 @use "./_colors" as *;
 
 //mobile padding
-$mobile-component-padding: 5vw; // 16px
-$mobile-pre-heading-padding: 7.5vw;  // 24px
-$mobile-post-heading-padding: 5vw;
+$mobile-component-padding: 1rem; //16px
+$mobile-pre-heading-padding: 1.5rem;  //24px
+$mobile-post-heading-padding: 1rem; //16px
 //tablet padding
-$tablet-component-padding: 1.5rem;
-$tablet-pre-heading-padding: 2.25rem;
-$tablet-post-heading-padding: 1.5rem;
+$tablet-component-padding: 1.5rem; //24px
+$tablet-pre-heading-padding: 2.25rem; //36px
+$tablet-post-heading-padding: 1.5rem; //24px
 
 //nav logo details
 $logo-max-height: 1.563rem; // 25px
