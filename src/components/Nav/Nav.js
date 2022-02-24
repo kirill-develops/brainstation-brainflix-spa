@@ -12,7 +12,7 @@ const Nav = () => {
         <div className="nav__mobile-form">
           <input type="text" name="search" className="nav__search" placeholder="Search"></input>
           <button className="nav__button--tablet">UPLOAD</button>
-          <img src={avatar} className="nav__avatar" alt="user avatar" forHTML="search"></img>
+          <img src={avatar} className="nav__avatar" alt="user avatar" htmlFor="search"></img>
         </div>
         <button className="nav__button">UPLOAD</button>
       </form>

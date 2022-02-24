@@ -2,4 +2,14 @@
 
 .media-window {
   background-color: $brainFlix-darkBlack;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+
+  &__file {
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 16/9;
+
+  }
 }
