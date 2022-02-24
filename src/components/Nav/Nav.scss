@@ -1,0 +1,38 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.nav {
+  margin: $mobile-component-padding;
+  box-sizing: border-box;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: baseline;
+  
+  &__logo {
+    max-height: $logo-max-height;
+    max-width: $logo-max-width;
+  };
+  &__form {
+    box-sizing: border-box;
+    width: 100%;
+  };
+  &__search {
+    margin: $mobile-component-padding;
+    margin-left: 0;
+    box-sizing: border-box;
+    width: 81%;
+
+    @include form;
+  };
+  &__avatar {
+    @include avatar;
+    vertical-align: middle;
+  };
+  &__button {
+    @include button;
+    @include label-button-mobile;
+    background-image: url('../../assets/Icons/upload.svg');
+  };
+};
