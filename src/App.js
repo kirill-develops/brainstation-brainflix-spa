@@ -6,6 +6,7 @@ import './styles/App.scss';
 import Nav from './components/Nav/Nav';
 import Media from './components/Media/Media';
 import Details from './components/Details/Details'
+import CommentInput from './components/CommentInput/CommentInput';
 
 
 class App extends React.Component {
@@ -17,6 +18,7 @@ class App extends React.Component {
         <Nav />
         <Media data={videos[0]} />
         <Details data={videoDetails[0]}></Details>
+        <CommentInput data={videoDetails[0]}></CommentInput>
 
       </div>
     )
