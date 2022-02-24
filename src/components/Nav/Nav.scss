@@ -1,38 +1,68 @@
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .nav {
-  margin: $mobile-component-padding;
+  @include block-mobile-padding;
   box-sizing: border-box;
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   
   &__logo {
     max-height: $logo-max-height;
     max-width: $logo-max-width;
+
+    @include tablet {
+      vertical-align: middle;
+    }
   };
   &__form {
     box-sizing: border-box;
     width: 100%;
+    
+    @include tablet {
+      width: 80%;
+      display: flex;
+      justify-content: flex-end;
+    }
   };
   &__search {
-    margin: $mobile-component-padding;
+    @include form;
+    @include block-mobile-padding;
     margin-left: 0;
     box-sizing: border-box;
     width: 81%;
 
-    @include form;
+    @include tablet {
+      @include block-tablet-padding;
+      width: $form-min-width;
+      margin: 0 $tablet-component-padding;
+    }
   };
   &__avatar {
     @include avatar;
     vertical-align: middle;
+
+    @include tablet {
+      margin: 0 $tablet-component-padding 0 0;
+    }
   };
   &__button {
     @include button;
     @include label-button-mobile;
     background-image: url('../../assets/Icons/upload.svg');
+
+    @include tablet {
+      width: $cta-tablet-min-width;
+      padding: 0 $cta-tablet-horizontal-padding;
+    }
   };
+  @include tablet {
+    @include block-tablet-padding;
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 };
