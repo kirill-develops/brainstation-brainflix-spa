@@ -1,6 +1,6 @@
-import './Details.scss';
+import './MediaDetails.scss';
 
-const Details = (props) => {
+const MediaDetails = (props) => {
 
   return (
     <div className="">
@@ -16,4 +16,4 @@ const Details = (props) => {
   )
 }
 
-export default Details;
+export default MediaDetails;
