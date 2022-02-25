@@ -1,3 +1,14 @@
-.App {
-  box-sizing: border-box;
+@use '../styles/partials/variables' as *;
+
+html {
+  scroll-behavior: smooth;
 }
+
+body {
+  margin: 0;
+  font-family: $root-font-stack;
+  font-size: $root-font-size;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

@@ -27,14 +27,12 @@
 
 // Font header mixins
 @mixin font-page-header-mobile {
-  @include header-mobile-padding;
   font-size: 1.5rem; //24px
   line-height: 2rem; //32px
   font-weight: 700;
   color: $primary-font-color;
 }
 @mixin font-page-header-tablet {
-  @include header-tablet-padding;
   font-size: 2.063rem; //33px
   line-height: 2.75rem; //44px
   font-weight: 700;
@@ -53,14 +51,12 @@
   color: $primary-font-color;
 }
 @mixin font-subheader-mobile {
-  @include header-mobile-padding;
   font-size: 0.813rem; //13px
   line-height: 1.125rem; //18px
   font-weight: 700;
   color: $primary-font-color;
 }
 @mixin font-subheader-tablet {
-  @include header-tablet-padding;
   font-size: 0.875rem; //14px
   line-height: 1.375rem; //22px
   font-weight: 700;

@@ -1,0 +1,33 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.preview-card {
+  box-sizing: border-box;
+  // width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: $mobile-component-padding;
+
+  &__media {
+    border-radius: 0.25rem;
+    width: 6.5rem;
+    aspect-ratio: 16/10;
+    height: min-content;
+    object-fit: cover;
+    margin-right: $mobile-component-padding;
+  };
+  &__right {
+    box-sizing: border-box;
+  };
+  &__title {
+    @include font-section-header-mobile;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+  };
+  &__author {
+    margin-top: 0;
+    margin-bottom: 0;
+    @include font-body-mobile;
+  };
+};

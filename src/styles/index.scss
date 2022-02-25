@@ -1,9 +1,0 @@
-@use '../styles/partials/variables' as *;
-
-body {
-  margin: 0;
-  font-family: $root-font-stack;
-  font-size: $root-font-size;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}

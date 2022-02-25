@@ -1,0 +1,15 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.next-video {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-left: $mobile-component-padding;
+  margin-right: $mobile-component-padding;
+
+  &__header {
+    @include font-section-header-mobile;
+    width: fit-content;
+  }
+}
