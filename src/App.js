@@ -10,6 +10,9 @@ import CommentInput from './components/CommentInput/CommentInput';
 import CommentList from './components/CommentList/CommentList';
 import NextVideo from './components/NextVideo/NextVideo';
 
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json';
+TimeAgo.addDefaultLocale(en);
 
 class App extends React.Component {
   state = {

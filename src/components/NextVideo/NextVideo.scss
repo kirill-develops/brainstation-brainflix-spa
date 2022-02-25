@@ -7,9 +7,13 @@
   flex-direction: column;
   margin-left: $mobile-component-padding;
   margin-right: $mobile-component-padding;
+  margin-bottom: 0.75rem;
 
   &__header {
     @include font-section-header-mobile;
+    margin-top: $mobile-post-heading-padding;
+    margin-bottom: $mobile-post-heading-padding;
     width: fit-content;
+    color: $secondary-font-color;
   }
 }

@@ -29,11 +29,17 @@
   flex-wrap: wrap;
   
   &__label {
+    @include font-body-mobile;
     box-sizing: border-box;
     width: 50%;
+    margin: 0.3rem 0;
+
     &--special {
       @extend .media-detail__label;
-      
+      @include font-subheader-mobile;
     }
+  }
+  &__icon {
+   margin-right: 0.5rem; 
   }
 }
