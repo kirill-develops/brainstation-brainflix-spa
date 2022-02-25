@@ -8,11 +8,13 @@
     @include block-mobile-margin;
     @include header-mobile-padding;
     @include divider;
+    padding-left: 0;
+    padding-right: 0;
   }
   &__content {
     @include block-mobile-margin;
     @include font-body-mobile;
-    
+    margin-bottom: 0;
   }
 }
 

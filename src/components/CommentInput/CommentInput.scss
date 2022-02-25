@@ -1,0 +1,51 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/colors' as *;
+
+.comment-input {
+  display: flex;
+  flex-wrap: wrap;
+  &__header {
+    @include font-subheader-mobile;
+    @include header-mobile-padding;
+    width: 100%;
+    margin: 0;
+  }
+  &__form {
+    margin: 0 $mobile-component-padding;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+  }
+  &__avatar {
+    @include avatar;
+    position: relative;
+    top: 1.5rem;
+  }
+  &__right {
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: $mobile-component-padding;
+    display: flex;
+    flex-direction: column;
+  }
+  &__label {
+    @include font-label-button-mobile;
+    padding-bottom: $form-label-space;
+    color: $secondary-font-color;
+  }
+  &__field {
+    @include form;
+    margin-bottom: $mobile-component-padding;
+    resize: none;
+    
+    &::placeholder {
+      color: $brainFlix-darkBlack;
+    }
+  }
+  &__button {
+    @include button;
+    @include font-label-button-mobile;
+    background-image: url('../../assets/Icons/add_comment.svg');
+  }
+}

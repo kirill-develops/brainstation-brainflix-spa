@@ -19,12 +19,10 @@
 
 }
 @mixin header-mobile-padding {
-  padding-top: $mobile-pre-heading-padding;
-  padding-bottom: $mobile-post-heading-padding;
+  padding: $mobile-pre-heading-padding $mobile-component-padding $mobile-post-heading-padding;
 }
 @mixin header-tablet-padding {
-  padding-top: $tablet-pre-heading-padding;
-  padding-bottom: $tablet-post-heading-padding;
+  padding: $tablet-pre-heading-padding $tablet-component-padding $tablet-post-heading-padding;
 }
 
 // Font header mixins
@@ -116,6 +114,7 @@
   }
 }
 @mixin form {
+  font-family: $root-font-stack;
   height: $form-mobile-height;
   border-radius: $form-border-radius;
   padding: $form-mobile-padding;

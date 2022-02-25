@@ -1,4 +1,5 @@
 @use "./_colors" as *;
+@use "./typography" as *;
 
 //mobile padding
 $mobile-component-padding: 1rem; //16px
@@ -8,6 +9,10 @@ $mobile-post-heading-padding: 1rem; //16px
 $tablet-component-padding: 1.5rem; //24px
 $tablet-pre-heading-padding: 2.25rem; //36px
 $tablet-post-heading-padding: 1.5rem; //24px
+
+//font
+$root-font-stack: "AvenirNext", "Montserrat", sans-serif;
+$root-font-size: 100%;
 
 //colors, global
 $primary-font-color: $brainFlix-black;
