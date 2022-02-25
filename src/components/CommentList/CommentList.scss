@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.comment-list {
+  @include divider;
+  margin-left: $mobile-component-padding;
+  margin-right: 0;
+  padding-right: $mobile-component-padding;
+}

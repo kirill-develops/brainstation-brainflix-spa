@@ -41,14 +41,12 @@
   color: $primary-font-color;
 }
 @mixin font-section-header-mobile {
-  @include header-mobile-padding;
   font-size: 0.75rem; //12px
   line-height: 1.25rem; //20px
   font-weight: 700;
   color: $primary-font-color;
 }
 @mixin font-section-header-tablet {
-  @include header-tablet-padding;
   font-size: 0.75rem; //12px
   line-height: 1.25rem; //20px
   font-weight: 700;

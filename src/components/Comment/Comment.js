@@ -1,11 +1,15 @@
+import './Comment.scss';
 
 const Comment = ({name, timestamp, comment}) => {
 
   return (
-    <div>
-      <h3 className="comment-list__name">{name}</h3>
-      <h4 className="comment-list__date">{timestamp}</h4>
-      <p className="comment-list__content">{comment}</p>
+    <div className='comment'>
+      <div className="comment__avatar--blank"></div>
+    <div className="comment__right">
+      <h3 className="comment__name">{name}</h3>
+      <h4 className="comment__date">{timestamp}</h4>
+      <p className="comment__content">{comment}</p>
+    </div>
     </div>
   )
 }
