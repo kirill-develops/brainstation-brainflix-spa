@@ -3,7 +3,7 @@
 @use '../../styles/partials/breakpoints' as *;
 
 .nav {
-  @include block-mobile-padding;
+  @include block-mobile-margin;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -45,13 +45,13 @@
 
   &__search {
     @include form;
-    @include block-mobile-padding;
+    @include block-mobile-margin;
     margin-left: 0;
     box-sizing: border-box;
     width: 100%;
 
     @include tablet {
-      @include block-tablet-padding;
+      @include block-tablet-margin;
       width: $form-min-width;
       margin: 0 $tablet-component-padding;
     }
@@ -89,7 +89,7 @@
   };
 
   @include tablet {
-    @include block-tablet-padding;
+    @include block-tablet-margin;
     flex-wrap: nowrap;
     justify-content: space-between;
   }

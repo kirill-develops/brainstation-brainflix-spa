@@ -1,0 +1,37 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.media-highlights {
+  
+  &__title {
+    @include font-page-header-mobile;
+    @include block-mobile-margin;
+    @include header-mobile-padding;
+    @include divider;
+  }
+  &__content {
+    @include block-mobile-margin;
+    @include font-body-mobile;
+    
+  }
+}
+
+.media-detail {
+  @include element-mobile-padding;
+  @include divider;
+  list-style: none;
+  margin: 0 $mobile-component-padding;
+  padding: 0 0 $mobile-component-padding;
+
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__label {
+    box-sizing: border-box;
+    width: 50%;
+    &--special {
+      @extend .media-detail__label;
+      
+    }
+  }
+}
