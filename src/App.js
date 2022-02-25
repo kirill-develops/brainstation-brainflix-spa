@@ -26,7 +26,7 @@ class App extends React.Component {
         <MediaDetails data={this.state.videoDetails[0]}></MediaDetails>
         <CommentInput data={this.state.videoDetails[0]}></CommentInput>
         <CommentList data={this.state.videoDetails[0]}></CommentList>
-        {/* <NextVideo vidArr={this.state.videoDetails}></NextVideo> */}
+        <NextVideo vidArr={this.state.videoDetails}></NextVideo>
 
       </div>
     )

@@ -4,7 +4,7 @@ import Comment from "../Comment/Comment";
 const CommentList = (props) => {
 
   return (
-    <div>
+    <div className="comment-list">
       {props.data.comments.map(comment =>
         <Comment
           name={comment.name}
@@ -12,8 +12,7 @@ const CommentList = (props) => {
           comment={comment.comment}
           key={comment.timestamp}
         />
-      )
-      }
+      )}
     </div>
   );
 };
