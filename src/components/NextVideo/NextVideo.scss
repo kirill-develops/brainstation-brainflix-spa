@@ -1,5 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/colors' as *;
 
 .next-video {
   box-sizing: border-box;
@@ -14,6 +16,24 @@
     margin-top: $mobile-post-heading-padding;
     margin-bottom: $mobile-post-heading-padding;
     width: fit-content;
-    color: $secondary-font-color;
+    color: $silver;
+    
+    @include tablet {
+      @include font-section-header-tablet;
+      margin-top: $tablet-post-heading-padding;
+      margin-bottom: $tablet-post-heading-padding;
+      color: $silver;
+    }
+  }
+
+  @include tablet {
+    margin-left: $tablet-component-padding;
+    margin-right: $tablet-component-padding;
+  }
+
+  @include desktop {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: 20%;
   }
 }

@@ -46,14 +46,13 @@
   &__search {
     @include form;
     @include block-mobile-margin;
+    font-size: 0.75rem;
     margin-left: 0;
     box-sizing: border-box;
     width: 100%;
     background: transparent url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
     padding-left: 36px;
-    // background-repeat: no-repeat;
-    // background-position: $form-mobile-padding center;
-
+   
     @include tablet {
       @include block-tablet-margin;
       width: $form-min-width;
@@ -83,7 +82,6 @@
         @include font-label-button-tablet;
         display: inline-block;
         background-image: url('../../assets/Icons/upload.svg');
-        width: $cta-tablet-min-width;
         padding: 0 $cta-tablet-horizontal-padding;
       }
     }

@@ -1,6 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .comment-input {
   display: flex;
@@ -11,43 +12,96 @@
     @include header-mobile-padding;
     width: 100%;
     margin: 0;
+    
+    @include tablet {
+      @include font-subheader-tablet;
+      @include header-tablet-padding;
+      margin: 0;
+    }
   }
+
   &__form {
     padding-bottom: $mobile-component-padding;
     margin: 0 $mobile-component-padding;
     box-sizing: border-box;
     width: 100%;
     display: flex;
+    
+    @include tablet {
+      padding-bottom: $tablet-component-padding;
+      margin: 0 $tablet-component-padding;
+    }
   }
+
   &__avatar {
     @include avatar;
     position: relative;
     top: 1.5rem;
   }
+
   &__right {
     box-sizing: border-box;
     width: 100%;
     padding-left: $mobile-component-padding;
     display: flex;
     flex-direction: column;
+    
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
+
+  &__right-container {
+    @include tablet {
+      white-space: nowrap;
+      box-sizing: border-box;
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+    }
+  }
+
   &__label {
     @include font-label-button-mobile;
     padding-bottom: $form-label-space;
     color: $secondary-font-color;
+
+    @include tablet {
+      box-sizing: border-box;
+      width: 100%;
+    }
   }
+
   &__field {
     @include form;
     margin-bottom: $mobile-component-padding;
     resize: none;
+    height: 5rem;
+    box-sizing: border-box;
+    width: 100%;
     
     &::placeholder {
       color: $brainFlix-darkBlack;
     }
+
+    @include tablet {
+      height: 42px;
+      margin-right: $tablet-component-padding;
+      margin-bottom: 0;
+    }
   }
+
   &__button {
     @include button;
     @include font-label-button-mobile;
     background-image: url('../../assets/Icons/add_comment.svg');
+
+    @include tablet {
+      @include button;
+      @include font-label-button-tablet;
+      display: inline-block;
+      padding: 0 $cta-tablet-horizontal-padding;
+    }
   }
 }

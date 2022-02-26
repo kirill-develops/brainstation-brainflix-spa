@@ -39,7 +39,7 @@ class App extends React.Component {
       id,
       comments: activeComments
     } = videoDetails.find((video) => video.id === this.state.activeVideoId);
-      
+
     const filteredVideos = videos.filter((video) => video.id !== id);
 
     return (
@@ -48,24 +48,30 @@ class App extends React.Component {
         <Media
           poster={image}
         />
-        <MediaDetails
-          timestamp={timestamp}
-          title={title}
-          channel={channel}
-          views={views}
-          likes={likes}
-          description={description}
-        />
-        <CommentInput
-          commentSum={activeComments.length}
-        />
-        <CommentList
-          commentsArr={activeComments}
-        />
-        <NextVideo
-          vidArr={filteredVideos}
-          handleVideoChange={this.handleVideoChange}
-        />
+        <div className='main--desktop'>
+
+          <div className="main__left--desktop">
+            <MediaDetails
+              timestamp={timestamp}
+              title={title}
+              channel={channel}
+              views={views}
+              likes={likes}
+              description={description}
+            />
+            <CommentInput
+              commentSum={activeComments.length}
+            />
+            <CommentList
+              commentsArr={activeComments}
+            />
+          </div>
+
+          <NextVideo
+            vidArr={filteredVideos}
+            handleVideoChange={this.handleVideoChange}
+          />
+        </div>
       </div>
     )
   };

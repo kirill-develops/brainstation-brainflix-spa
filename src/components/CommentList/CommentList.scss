@@ -1,9 +1,15 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/breakpoints" as *;
 
 .comment-list {
   @include divider-bottom ;
   margin-left: $mobile-component-padding;
   margin-right: 0;
   padding-right: $mobile-component-padding;
+
+  @include tablet {
+    margin-left: $tablet-component-padding;
+    padding-right: $tablet-component-padding;
+  }
 }

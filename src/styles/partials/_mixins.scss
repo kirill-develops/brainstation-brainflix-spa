@@ -1,5 +1,6 @@
 @use './variables' as *;
 @use './colors' as *;
+@use './breakpoints' as *;
 
 
 // Padding for block, element and headers
@@ -94,8 +95,8 @@
 };
 @mixin button {
   background-repeat: no-repeat;
-  background-position: 8px center;
-  background-size: 1.25rem;
+  background-position: 12px center;
+  background-size: 1.15rem;
   height: $cta-height;
   width: $cta-mobile-width;
   border-radius: $cta-border-radius;
@@ -107,6 +108,11 @@
   &:hover {
     background-color: $cta-hover-color;
   }
+  
+  @include tablet {
+    width: $cta-tablet-min-width;
+    min-width: $cta-tablet-min-width;
+  }
 }
 @mixin form {
   font-family: $root-font-stack;
@@ -116,6 +122,11 @@
   outline: none;
   background-color: $form-background-color;
   border: $form-border-default-width solid $form-border-default-color;
+  
+  &::placeholder {
+    color: $form-color;
+
+  }
 }
 @mixin divider-bottom  {
   border-bottom: 1px solid $mercury;

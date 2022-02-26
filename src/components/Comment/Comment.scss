@@ -1,6 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .comment {
   @include divider-top ;
@@ -38,9 +39,14 @@
   };
   &__content {
     @include font-body-mobile;
+    margin-top: $form-label-space;
     color: $brainFlix-darkBlack;
     box-sizing: border-box;
     width: 100%;
     margin-bottom: 0;
   };
+
+  @include tablet {
+    padding: $tablet-comment-vertical-padding 0;
+  }
 }

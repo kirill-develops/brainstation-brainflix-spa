@@ -1,5 +1,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .preview-card {
   box-sizing: border-box;
@@ -15,18 +16,33 @@
     object-fit: cover;
     margin-right: $mobile-component-padding;
   };
+
   &__right {
     box-sizing: border-box;
   };
+
   &__title {
     @include font-section-header-mobile;
     margin-top: 0;
     margin-bottom: 0.25rem;
     width: fit-content;
+    
+    @include tablet {
+      @include font-section-header-tablet;
+    }
   };
+
   &__author {
     margin-top: 0;
     margin-bottom: 0;
     @include font-body-mobile;
+
+     @include tablet {
+      @include font-body-tablet;
+    }
+  };
+
+  @include tablet {
+    margin-bottom: $tablet-comment-vertical-padding;
   };
 };

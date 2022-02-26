@@ -1,5 +1,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .media-highlights {
   
@@ -10,11 +11,27 @@
     @include divider-bottom ;
     padding-left: 0;
     padding-right: 0;
+
+    @include tablet {
+      @include font-page-header-tablet;
+      @include header-tablet-padding;
+      margin: 0 $tablet-component-padding;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: $form-label-space;
+      border: none;
+    }
   }
   &__content {
     @include block-mobile-margin;
     @include font-body-mobile;
     margin-bottom: 0;
+    
+    @include tablet {
+      @include block-tablet-margin;
+      @include font-body-tablet;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -24,22 +41,61 @@
   list-style: none;
   margin: 0 $mobile-component-padding;
   padding: 0 0 $mobile-component-padding;
-
   display: flex;
   flex-wrap: wrap;
-  
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__label {
     @include font-body-mobile;
     box-sizing: border-box;
     width: 50%;
     margin: 0.3rem 0;
+    white-space: nowrap;
 
     &--special {
       @extend .media-detail__label;
       @include font-subheader-mobile;
     }
+
+    &--left {
+      padding-right: $mobile-component-padding;
+    }
+
+    &--right {
+      padding-left: $mobile-component-padding;
+    }
+
+    @include tablet {
+      display: flex;
+      width: max-content;
+    }
   }
+
   &__icon {
    margin-right: 0.5rem; 
+  }
+
+  &--tablet {
+    display: none;
+
+    @include tablet {
+      @include block-tablet-margin;
+      @include divider-bottom;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0 $form-label-space;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  @include tablet {
+    display: none;
   }
 }
