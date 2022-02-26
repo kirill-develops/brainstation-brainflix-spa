@@ -1,48 +1,74 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/colors' as *;
 
 .preview-card {
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  margin-bottom: 0.75rem;
-
+  padding-top: 0.37rem;
+  padding-bottom: 0.37rem;
+  margin-left: (-8px);
+  border: 1px solid rgba(255, 255, 255, 0);
+  text-decoration: none;
+  
   &__media {
     border-radius: 0.25rem;
     width: 6.5rem;
     aspect-ratio: 17/10;
-    height: min-content;
+    height: 66px;
     object-fit: cover;
+    margin-left: 8px;
     margin-right: $mobile-component-padding;
   };
-
+  
   &__right {
     box-sizing: border-box;
+    padding: 4px 8px 4px 0;
   };
-
+  
   &__title {
     @include font-section-header-mobile;
     margin-top: 0;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
     width: fit-content;
     
     @include tablet {
-      @include font-section-header-tablet;
     }
   };
-
+  
   &__author {
     margin-top: 0;
     margin-bottom: 0;
+
     @include font-body-mobile;
 
      @include tablet {
-      @include font-body-tablet;
     }
   };
 
+  &:hover {
+    cursor: pointer;
+    border: 1px solid $mercury;
+    border-radius: $cta-border-radius;
+    background-color: $alabaster;
+
+    
+    .preview-card__media {
+      filter: grayscale(1);
+    }
+
+    .preview-card__title {
+      color: $brainFlix-darkBlue !important;
+      
+    }
+    .preview-card__author {
+      color: $brainFlix-darkBlue !important;
+    }
+  }
+
   @include tablet {
-    margin-bottom: $tablet-comment-vertical-padding;
+    margin-bottom: calc(($tablet-comment-vertical-padding / 2) - 0.37px);
   };
 };

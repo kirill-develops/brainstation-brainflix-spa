@@ -79,7 +79,6 @@
 
       @include tablet {
         @include button;
-        @include font-label-button-tablet;
         display: inline-block;
         background-image: url('../../assets/Icons/upload.svg');
         padding: 0 $cta-tablet-horizontal-padding;
@@ -94,5 +93,9 @@
     @include block-tablet-margin;
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+
+  @include desktop {
+    padding: 0 $desktop-main-horizontal-padding;
   }
 };

@@ -14,7 +14,6 @@
     margin: 0;
     
     @include tablet {
-      @include font-subheader-tablet;
       @include header-tablet-padding;
       margin: 0;
     }
@@ -99,7 +98,6 @@
 
     @include tablet {
       @include button;
-      @include font-label-button-tablet;
       display: inline-block;
       padding: 0 $cta-tablet-horizontal-padding;
     }

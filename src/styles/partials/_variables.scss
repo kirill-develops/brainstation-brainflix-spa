@@ -1,15 +1,20 @@
 @use "./_colors" as *;
 @use "./typography" as *;
 
-//mobile padding
+//mobile dimensions, margins & padding
 $mobile-component-padding: 1rem; //16px
 $mobile-pre-heading-padding: 1.5rem;  //24px
 $mobile-post-heading-padding: 1rem; //16px
-//tablet padding
+$media-mobile-max-height: 11.25rem;
+//tablet dimensions, margins & padding
 $tablet-component-padding: 2rem; //24px
 $tablet-pre-heading-padding: 2.25rem; //36px
 $tablet-post-heading-padding: 1.5rem; //24px
 $tablet-comment-vertical-padding: 1.5rem;
+$media-tablet-max-height: 24.5rem;
+//desktop dimensions, margins & padding
+$desktop-main-horizontal-padding: 7rem;
+$media-desktop-max-height: 29.922rem;
 
 //font
 $root-font-stack: "AvenirNext", "Montserrat", sans-serif;

@@ -1,6 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 @use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/color\s' as *;
 
 .media-highlights {
   
@@ -11,9 +12,9 @@
     @include divider-bottom ;
     padding-left: 0;
     padding-right: 0;
+    margin-top: 0;
 
     @include tablet {
-      @include font-page-header-tablet;
       @include header-tablet-padding;
       margin: 0 $tablet-component-padding;
       padding-left: 0;
@@ -29,9 +30,9 @@
     
     @include tablet {
       @include block-tablet-margin;
-      @include font-body-tablet;
       margin-bottom: 0;
     }
+    
   }
 }
 
@@ -51,6 +52,7 @@
 
   &__label {
     @include font-body-mobile;
+    color: $silver;
     box-sizing: border-box;
     width: 50%;
     margin: 0.3rem 0;
@@ -92,6 +94,11 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
+    }
+
+    @include desktop {
+      margin-right: 0;
+      padding-right: $tablet-component-padding;
     }
   }
 

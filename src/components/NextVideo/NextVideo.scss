@@ -19,7 +19,6 @@
     color: $silver;
     
     @include tablet {
-      @include font-section-header-tablet;
       margin-top: $tablet-post-heading-padding;
       margin-bottom: $tablet-post-heading-padding;
       color: $silver;
@@ -34,6 +33,11 @@
   @include desktop {
     display: inline-flex;
     box-sizing: border-box;
-    width: 20%;
+    // width: 20%;
+    border-left: 1px solid $divider-color;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: $tablet-component-padding;
+    padding-right: $tablet-component-padding;
   }
 }

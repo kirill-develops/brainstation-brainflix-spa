@@ -32,58 +32,54 @@
   line-height: 2rem; //32px
   font-weight: 700;
   color: $primary-font-color;
-}
-@mixin font-page-header-tablet {
-  font-size: 2.063rem; //33px
-  line-height: 2.75rem; //44px
-  font-weight: 700;
-  color: $primary-font-color;
+
+  @include tablet {
+    font-size: 2.063rem; //33px
+    line-height: 2.75rem; //44px
+  }
 }
 @mixin font-section-header-mobile {
   font-size: 0.75rem; //12px
   line-height: 1.25rem; //20px
   font-weight: 700;
   color: $primary-font-color;
-}
-@mixin font-section-header-tablet {
-  font-size: 0.75rem; //12px
-  line-height: 1.25rem; //20px
-  font-weight: 700;
-  color: $primary-font-color;
+
+  @include tablet {
+    font-size: 0.75rem; //12px
+    line-height: 1.25rem; //20px
+  }
 }
 @mixin font-subheader-mobile {
   font-size: 0.813rem; //13px
   line-height: 1.125rem; //18px
   font-weight: 700;
   color: $primary-font-color;
-}
-@mixin font-subheader-tablet {
-  font-size: 0.875rem; //14px
-  line-height: 1.375rem; //22px
-  font-weight: 700;
-  color: $primary-font-color;
+
+  @include tablet {
+    font-size: 0.875rem; //14px
+    line-height: 1.375rem; //22px
+  }
 }
 @mixin font-body-mobile {
   font-size: 0.813rem; //13px
   line-height: 1.125rem; //18px
   font-weight: 400;
   color: $primary-font-color;
-}
-@mixin font-body-tablet {
-  font-size: 0.875rem; //14px
-  line-height: 1.375rem; //22px
-  font-weight: 400;
-  color: $primary-font-color;
+
+  @include tablet {
+    font-size: 0.875rem; //14px
+    line-height: 1.375rem; //22px
+  }
 }
 @mixin font-label-button-mobile {
   font-size: 0.75rem; //12px
   line-height: 1.25rem; //20px
   font-weight: 700;
-}
-@mixin font-label-button-tablet {
-  font-size: 0.75rem; //12px
-  line-height: 1.25rem; //20px
-  font-weight: 700;
+
+  @include tablet {
+    font-size: 0.75rem; //12px
+    line-height: 1.25rem; //20px
+  }
 }
 
 @mixin avatar {
@@ -92,6 +88,10 @@
   object-position: 15%;
   border-radius: $avatar-border-radius;
   aspect-ratio: 1;
+
+  @include tablet {
+    height: $avatar-tablet-height
+  }
 };
 @mixin button {
   background-repeat: no-repeat;
@@ -103,10 +103,10 @@
   border: none;
   background-color: $cta-background-color;
   color: $cta-text-color;
-  transition: 0.3s;
 
   &:hover {
     background-color: $cta-hover-color;
+    cursor: pointer;
   }
   
   @include tablet {

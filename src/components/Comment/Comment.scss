@@ -19,12 +19,13 @@
   &__right {
     margin-left: $mobile-component-padding;
     display: flex;
+    width: 100%;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
   };
   &__name {
-    @include font-section-header-mobile;
+    @include font-subheader-mobile;
     margin: 0;
     box-sizing: border-box;
     width: fit-content;
@@ -48,5 +49,11 @@
 
   @include tablet {
     padding: $tablet-comment-vertical-padding 0;
+  }
+
+  @include desktop {
+    margin-right: 0;
+    padding-right: $tablet-component-padding;
+
   }
 }

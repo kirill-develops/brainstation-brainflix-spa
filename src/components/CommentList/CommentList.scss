@@ -12,4 +12,9 @@
     margin-left: $tablet-component-padding;
     padding-right: $tablet-component-padding;
   }
+
+  @include desktop {
+    padding-right: 0;
+    border: none;
+  }
 }

@@ -1,8 +1,19 @@
 @use '../../styles/partials/colors' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
 
 .media {
   background-color: $brainFlix-darkBlack;
   height: fit-content;
   width: 100%;
   aspect-ratio: 16/9;
+  max-height: $media-mobile-max-height;
+
+  @include tablet {
+    max-height: $media-tablet-max-height;
+  }
+
+  @include desktop {
+    max-height: $media-desktop-max-height;
+  }
 }
