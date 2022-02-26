@@ -7,7 +7,7 @@
     @include font-page-header-mobile;
     @include block-mobile-margin;
     @include header-mobile-padding;
-    @include divider;
+    @include divider-bottom ;
     padding-left: 0;
     padding-right: 0;
   }
@@ -20,7 +20,7 @@
 
 .media-detail {
   @include element-mobile-padding;
-  @include divider;
+  @include divider-bottom ;
   list-style: none;
   margin: 0 $mobile-component-padding;
   padding: 0 0 $mobile-component-padding;

@@ -117,6 +117,9 @@
   background-color: $form-background-color;
   border: $form-border-default-width solid $form-border-default-color;
 }
-@mixin divider {
+@mixin divider-bottom  {
   border-bottom: 1px solid $mercury;
+}
+@mixin divider-top  {
+  border-top: 1px solid $mercury;
 }

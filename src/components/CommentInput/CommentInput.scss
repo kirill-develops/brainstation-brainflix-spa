@@ -13,7 +13,6 @@
     margin: 0;
   }
   &__form {
-    @include divider;
     padding-bottom: $mobile-component-padding;
     margin: 0 $mobile-component-padding;
     box-sizing: border-box;

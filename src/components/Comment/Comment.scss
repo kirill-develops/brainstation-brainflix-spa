@@ -3,7 +3,7 @@
 @use '../../styles/partials/colors' as *;
 
 .comment {
-  @include divider;
+  @include divider-top ;
   display: flex;
   padding: $mobile-component-padding 0;
   

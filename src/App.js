@@ -1,6 +1,7 @@
 import React from 'react';
 import videos from './data/videos.json';
 import videoDetails from './data/video-details.json';
+import { getRandomElement } from './script/getRandomElement'
 import './styles/App.scss';
 
 import Nav from './components/Nav/Nav';
@@ -12,24 +13,42 @@ import NextVideo from './components/NextVideo/NextVideo';
 
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
-TimeAgo.addDefaultLocale(en);
 
 class App extends React.Component {
   state = {
-    videos: videos,
-    videoDetails: videoDetails
+    activeVideo: getRandomElement(videoDetails)
   }
-  
+
+  handleVideoChange = (video) => {
+    this.setState({
+      activeVideo: video
+    })
+  }
+
   render() {
-    console.log(videoDetails);
+    TimeAgo.addDefaultLocale(en);
+    console.log(this.state.activeVideo);
+
+    const filteredVideos = videos.filter((video) => video.id !== this.state.activeVideo.id);
+    const { image } = this.state.activeVideo;
+
+    const { timestamp, title, channel, views, likes, description } = this.state.activeVideo;
     return (
       <div className="App">
         <Nav />
-        <Media data={this.state.videos[0]} />
-        <MediaDetails data={this.state.videoDetails[0]}></MediaDetails>
-        <CommentInput data={this.state.videoDetails[0]}></CommentInput>
-        <CommentList data={this.state.videoDetails[0]}></CommentList>
-        <NextVideo vidArr={this.state.videoDetails}></NextVideo>
+        <Media video = {image} />
+        <MediaDetails
+          data={this.state.activeVideo}
+          timestamp = {timestamp}
+          title = {title}
+          channel = {channel}
+          views = {views}
+          likes = {likes}
+          description = {description}
+        />
+        <CommentInput data={this.state.activeVideo}></CommentInput>
+        <CommentList data={this.state.activeVideo}></CommentList>
+        <NextVideo vidArr={filteredVideos}></NextVideo>
       </div>
     )
   };
