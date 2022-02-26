@@ -49,6 +49,10 @@
     margin-left: 0;
     box-sizing: border-box;
     width: 100%;
+    background: transparent url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
+    padding-left: 36px;
+    // background-repeat: no-repeat;
+    // background-position: $form-mobile-padding center;
 
     @include tablet {
       @include block-tablet-margin;
