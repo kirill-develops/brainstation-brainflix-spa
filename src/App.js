@@ -17,7 +17,8 @@ TimeAgo.addDefaultLocale(en);
 
 class App extends React.Component {
   state = {
-    activeVideoId: getRandomElement(videoDetails).id
+    activeVideoId: getRandomElement(videos).id,
+    videoArray: videos
   }
 
   handleVideoChange = (video) => {
@@ -27,7 +28,10 @@ class App extends React.Component {
   }
 
   render() {
-    // const activeVideoObj = videoDetails.find((video) => video.id === this.state.activeVideoId);
+    const confirmVideoID = this.state.videoArray
+      .find((video) => video.id === this.state.activeVideoId)
+      .id;
+
     const {
       timestamp,
       title,
@@ -38,9 +42,9 @@ class App extends React.Component {
       image,
       id,
       comments: activeComments
-    } = videoDetails.find((video) => video.id === this.state.activeVideoId);
-
-    const filteredVideos = videos.filter((video) => video.id !== id);
+    } = videoDetails.find(video => video.id === confirmVideoID);
+    
+    const filteredVideos = this.state.videoArray.filter((video) => video.id !== id);
 
     return (
       <div className="App">

@@ -73,12 +73,13 @@
     @include button;
     @include font-label-button-mobile;
     background-image: url('../../assets/Icons/upload.svg');
-
+    
     &--tablet {
       display: none;
-
+      
       @include tablet {
         @include button;
+        @include font-label-button-mobile;
         display: inline-block;
         background-image: url('../../assets/Icons/upload.svg');
         padding: 0 $cta-tablet-horizontal-padding;
