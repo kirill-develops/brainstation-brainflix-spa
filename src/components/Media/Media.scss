@@ -1,16 +1,8 @@
 @use '../../styles/partials/colors' as *;
 
-.media-window {
+.media {
   background-color: $brainFlix-darkBlack;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-
-  &__file {
-    box-sizing: border-box;
-    width: 100%;
-    object-fit: contain;
-    aspect-ratio: 16/9;
-
-  }
+  height: fit-content;
+  width: 100%;
+  aspect-ratio: 16/9;
 }

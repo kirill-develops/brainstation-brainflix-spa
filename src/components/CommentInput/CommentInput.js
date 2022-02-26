@@ -1,10 +1,10 @@
 import avatar from "../../assets/Images/Mohan-muruge.jpg"
 import "./CommentInput.scss"
 
-const CommentInput = (props) => {
+const CommentInput = ({commentSum}) => {
   return (
     <section className="comment-input">
-      <h3 className="comment-input__header">{props.data.comments.length} Comments</h3>
+      <h3 className="comment-input__header">{commentSum} Comments</h3>
       <form className="comment-input__form" id="newComment">
         <img className="comment-input__avatar" htmlFor="userComment" src={avatar} alt=""></img>
         <div className="comment-input__right">

@@ -1,15 +1,20 @@
 import './PreviewCard.scss'
 
-const PreviewCard = ({ title, image, author }) => {
+const PreviewCard = ({ title, image, author, handleVideoChange, id }) => {
+
+  const clickHandler = (event, video) => {
+    event.preventDefault();
+    handleVideoChange(video);
+  }
 
   return (
-    <div className='preview-card'>
+    <a className='preview-card' onClick={(event) => { clickHandler(event, id) }}>
       <img className='preview-card__media' alt={title} src={image}></img>
       <div className='preview-card__right'>
         <h3 className='preview-card__title'>{title}</h3>
         <h4 className='preview-card__author'>{author}</h4>
       </div>
-    </div>
+    </a>
   )
 }
 

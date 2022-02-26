@@ -1,4 +1,4 @@
-import LastSeen from '../../script/lastSeen';
+import LastSeen from '../../script/LastSeen';
 import './Comment.scss';
 
 const Comment = ({ name, timestamp, comment }) => {

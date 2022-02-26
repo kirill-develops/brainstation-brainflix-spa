@@ -1,18 +1,23 @@
 import Comment from "../Comment/Comment";
 import './CommentList.scss';
 
-const CommentList = (props) => {
+const CommentList = ({ commentsArr }) => {
 
   return (
     <div className="comment-list">
-      {props.data.comments.map(comment =>
-        <Comment
-          name={comment.name}
-          timestamp={comment.timestamp}
-          comment={comment.comment}
-          key={comment.timestamp}
-        />
-      )}
+      {commentsArr.map(comment => {
+
+        const { name, timestamp, comment: commentData } = comment;
+
+        return (
+          <Comment
+            name={name}
+            timestamp={timestamp}
+            comment={commentData}
+            key={timestamp}
+          />
+        )
+      })}
     </div>
   );
 };
