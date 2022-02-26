@@ -6,7 +6,7 @@ import './styles/App.scss';
 
 import Nav from './components/Nav/Nav';
 import Media from './components/Media/Media';
-import MediaDetails from './components/MediaDetails/MediaDetails';
+import MediaHighlights from './components/MediaHighlights/MediaHighlights';
 import CommentInput from './components/CommentInput/CommentInput';
 import CommentList from './components/CommentList/CommentList';
 import NextVideo from './components/NextVideo/NextVideo';
@@ -51,7 +51,7 @@ class App extends React.Component {
         <div className='main--desktop'>
 
           <div className="main__left--desktop">
-            <MediaDetails
+            <MediaHighlights
               timestamp={timestamp}
               title={title}
               channel={channel}

@@ -36,8 +36,8 @@
     margin: 0;
     box-sizing: border-box;
     width: fit-content;
-    
   };
+  
   &__content {
     @include font-body-mobile;
     margin-top: $form-label-space;

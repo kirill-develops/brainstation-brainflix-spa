@@ -1,14 +1,14 @@
 import LastSeen from "../../script/LastSeen";
 import viewLogo from "../../assets/Icons/views.svg";
 import likesLogo from "../../assets/Icons/likes.svg";
-import './MediaDetails.scss';
+import './MediaDetails.scss'
 
-const MediaDetails = ({ timestamp, title, channel, views, likes, description }) => {
+const MediaDetails = ({ timestamp, channel, views, likes }) => {
+
   const relDate = LastSeen(timestamp);
 
   return (
-    <div className="media-highlights">
-      <h1 className="media-highlights__title">{title}</h1>
+    <>
       <ul className="media-detail">
         <li className="media-detail__label--special">By {channel}</li>
         <li className="media-detail__label">
@@ -37,9 +37,7 @@ const MediaDetails = ({ timestamp, title, channel, views, likes, description }) 
             </img>{likes}</li>
         </div>
       </ul>
-
-      <p className="media-highlights__content">{description}</p>
-    </div>
+    </>
   )
 }
 
