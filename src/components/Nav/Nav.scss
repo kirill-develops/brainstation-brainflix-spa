@@ -44,13 +44,13 @@
   }
 
   &__search {
-    @include form;
+    background:  url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
     @include block-mobile-margin;
+    @include form;
     font-size: 0.75rem;
     margin-left: 0;
     box-sizing: border-box;
     width: 100%;
-    background: transparent url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
     padding-left: 36px;
    
     @include tablet {
