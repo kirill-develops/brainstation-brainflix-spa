@@ -6,11 +6,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './styles/App.scss';
 
 import Nav from './components/Nav/Nav';
-import Media from './components/Media/Media';
-import MediaHighlights from './components/MediaHighlights/MediaHighlights';
-import CommentInput from './components/CommentInput/CommentInput';
-import CommentList from './components/CommentList/CommentList';
-import NextVideo from './components/NextVideo/NextVideo';
+
+// import Media from './components/Media/Media';
+// import MediaHighlights from './components/MediaHighlights/MediaHighlights';
+// import CommentInput from './components/CommentInput/CommentInput';
+// import CommentList from './components/CommentList/CommentList';
+// import NextVideo from './components/NextVideo/NextVideo';
+
+import HomePage from './pages/HomePage/HomePage';
+import UploadPage from './pages/UploadPage/UploadPage';
 
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
@@ -45,17 +49,57 @@ class App extends React.Component {
       id,
       comments: activeComments
     } = videoDetails.find(video => video.id === confirmVideoID);
-    
+
     const filteredVideos = this.state.videoArray.filter((video) => video.id !== id);
 
     return (
 
+      <BrowserRouter>
 
-      <div className="App">
         <Nav />
-        <Media
-          poster={image}
-        />
+        <Switch>
+          <Route path="/" exact render={(routerProps) =>
+            <HomePage
+              timestamp={timestamp}
+              title={title}
+              channel={channel}
+              views={views}
+              likes={likes}
+              description={description}
+              commentSum={activeComments.length}
+              commentsArr={activeComments}
+              vidArr={filteredVideos}
+              poster={image}
+              handleVideoChange={this.handleVideoChange}
+              {...routerProps}
+            />
+          } />
+          <Route path="/UploadPage" render={() => <UploadPage />} />
+          <Route path="/:videoID" render={(routerProps) =>
+            <HomePage
+              timestamp={timestamp}
+              title={title}
+              channel={channel}
+              views={views}
+              likes={likes}
+              description={description}
+              commentSum={activeComments.length}
+              commentsArr={activeComments}
+              vidArr={filteredVideos}
+              poster={image}
+              handleVideoChange={this.handleVideoChange}
+              {...routerProps}
+            />}
+          />
+        </Switch>
+
+
+        {/* <Switch>
+          
+        </Switch> */}
+
+
+        {/* <Media poster={image} />
 
         <div className='main--desktop'>
 
@@ -81,8 +125,9 @@ class App extends React.Component {
             vidArr={filteredVideos}
             handleVideoChange={this.handleVideoChange}
           />
-        </div>
-      </div>
+        </div> */}
+
+      </BrowserRouter>
     )
   };
 };
