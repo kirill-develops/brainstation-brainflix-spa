@@ -23,6 +23,7 @@
       border: none;
     }
   }
+  
   &__content {
     @include block-mobile-margin;
     @include font-body-mobile;

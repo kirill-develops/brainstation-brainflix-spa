@@ -2,6 +2,7 @@ import React from 'react';
 import videos from './data/videos.json';
 import videoDetails from './data/video-details.json';
 import { getRandomElement } from './script/getRandomElement'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import './styles/App.scss';
 
 import Nav from './components/Nav/Nav';
@@ -28,6 +29,7 @@ class App extends React.Component {
   }
 
   render() {
+
     const confirmVideoID = this.state.videoArray
       .find((video) => video.id === this.state.activeVideoId)
       .id;
@@ -47,14 +49,18 @@ class App extends React.Component {
     const filteredVideos = this.state.videoArray.filter((video) => video.id !== id);
 
     return (
+
+
       <div className="App">
         <Nav />
         <Media
           poster={image}
         />
+
         <div className='main--desktop'>
 
           <div className="main__left--desktop">
+
             <MediaHighlights
               timestamp={timestamp}
               title={title}

@@ -18,6 +18,7 @@ body {
 }
 
 .main--desktop {
+
   @include desktop {
     display: flex;
     flex-wrap: nowrap;
@@ -27,6 +28,7 @@ body {
 }
 
 .main__left--desktop {
+  
   @include desktop {
     display: inline-block;
     box-sizing: border-box;

@@ -16,6 +16,7 @@
       background-color: $mercury;
     };
   };
+
   &__right {
     margin-left: $mobile-component-padding;
     display: flex;
@@ -24,12 +25,14 @@
     align-items: baseline;
     flex-wrap: wrap;
   };
+
   &__name {
     @include font-subheader-mobile;
     margin: 0;
     box-sizing: border-box;
     width: fit-content;
   };
+  
   &__date {
     @include font-body-mobile;
     color: $silver;
