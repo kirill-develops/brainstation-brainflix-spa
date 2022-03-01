@@ -97,13 +97,13 @@
   background-repeat: no-repeat;
   background-position: 12px center;
   background-size: 1.15rem;
+  text-align: center;
+  border: none;
   height: $cta-height;
   width: $cta-mobile-width;
   border-radius: $cta-border-radius;
-  border: none;
   background-color: $cta-background-color;
-  color: $cta-text-color;
-
+  
   &:hover {
     background-color: $cta-hover-color;
     cursor: pointer;
@@ -114,6 +114,11 @@
     min-width: $cta-tablet-min-width;
   }
 }
+@mixin button-text {
+  color: $cta-text-color;
+  text-decoration: none;
+}
+
 @mixin form {
   font-family: $root-font-stack;
   height: $form-mobile-height;

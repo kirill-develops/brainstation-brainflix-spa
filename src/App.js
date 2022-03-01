@@ -57,7 +57,9 @@ class App extends React.Component {
       <BrowserRouter>
 
         <Nav />
+
         <Switch>
+
           <Route path="/" exact render={(routerProps) =>
             <HomePage
               timestamp={timestamp}
@@ -92,11 +94,6 @@ class App extends React.Component {
             />}
           />
         </Switch>
-
-
-        {/* <Switch>
-          
-        </Switch> */}
 
 
         {/* <Media poster={image} />

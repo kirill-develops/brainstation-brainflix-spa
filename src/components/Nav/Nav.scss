@@ -91,6 +91,11 @@
     }
   };
 
+  &__button-text {
+    @include font-label-button-mobile;
+    @include button-text;
+  }
+
   @include tablet {
     @include block-tablet-margin;
     flex-wrap: nowrap;

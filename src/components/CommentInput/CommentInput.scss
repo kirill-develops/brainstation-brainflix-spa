@@ -102,4 +102,9 @@
       padding: 0 $cta-tablet-horizontal-padding;
     }
   }
+  
+  &__button-text {
+    @include font-label-button-mobile;
+    @include button-text;
+  }
 }

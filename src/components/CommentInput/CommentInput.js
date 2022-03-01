@@ -1,5 +1,6 @@
-import avatar from "../../assets/Images/Mohan-muruge.jpg"
+import { Link } from 'react-router-dom'
 import "./CommentInput.scss"
+import avatar from "../../assets/Images/Mohan-muruge.jpg"
 
 const CommentInput = ({ commentSum }) => {
   return (
@@ -11,7 +12,11 @@ const CommentInput = ({ commentSum }) => {
           <label className="comment-input__label" htmlFor="userComment">JOIN THE CONVERSATION</label>
           <div className="comment-input__right-container">
             <textarea className="comment-input__field" id="userComment" name="userComment" placeholder="Add a new comment"></textarea>
-            <button className="comment-input__button" type="submit">COMMENT</button>
+            <Link to="" className=''>
+              <button className="comment-input__button comment-input__button-text" onClick={(e) => e.preventDefault}>
+                COMMENT
+              </button>
+            </Link>
           </div>
         </div>
       </form>
