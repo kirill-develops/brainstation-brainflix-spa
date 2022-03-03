@@ -1,4 +1,4 @@
-import LastSeen from "../../script/LastSeen";
+import LastSeen from "../../utils/LastSeen";
 import viewLogo from "../../assets/Icons/views.svg";
 import likesLogo from "../../assets/Icons/likes.svg";
 import './MediaDetails.scss'
