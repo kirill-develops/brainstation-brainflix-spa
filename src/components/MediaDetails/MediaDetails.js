@@ -9,34 +9,34 @@ const MediaDetails = ({ timestamp, channel, views, likes }) => {
 
   return (
     <>
-      <ul className="media-detail">
-        <li className="media-detail__label--special">By {channel}</li>
-        <li className="media-detail__label">
+      <div className="media-detail">
+        <h4 className="media-detail__label--special">By {channel}</h4>
+        <h4 className="media-detail__label">
           <img className="media-detail__icon" alt="views icon" src={viewLogo}>
           </img>{views}
-        </li>
-        <li className="media-detail__label">{relDate}</li>
-        <li className="media-detail__label">
+        </h4>
+        <h4 className="media-detail__label">{relDate}</h4>
+        <h4 className="media-detail__label">
           <img className="media-detail__icon" alt="likes icon" src={likesLogo}>
-          </img>{likes}</li>
-      </ul>
+          </img>{likes}</h4>
+      </div>
 
-      <ul className="media-detail--tablet">
+      <div className="media-detail--tablet">
         <div className="media-detail__section">
-          <li className="media-detail__label--special media-detail__label--left">By {channel}</li>
-          <li className="media-detail__label media-detail__label--right">{relDate}</li>
+          <h4 className="media-detail__label--special media-detail__label--left">By {channel}</h4>
+          <h4 className="media-detail__label media-detail__label--right">{relDate}</h4>
         </div>
 
         <div className="media-detail__section">
-          <li className="media-detail__label media-detail__label--left">
+          <h4 className="media-detail__label media-detail__label--left">
             <img className="media-detail__icon" alt="views icon" src={viewLogo}>
             </img>{views}
-          </li>
-          <li className="media-detail__label media-detail__label--right">
+          </h4>
+          <h4 className="media-detail__label media-detail__label--right">
             <img className="media-detail__icon" alt="likes icon" src={likesLogo}>
-            </img>{likes}</li>
+            </img>{likes}</h4>
         </div>
-      </ul>
+      </div>
     </>
   )
 }

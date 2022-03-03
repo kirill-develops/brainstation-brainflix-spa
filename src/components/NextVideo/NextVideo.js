@@ -6,19 +6,18 @@ import './NextVideo.scss';
 class NextVideo extends Component {
 
   render() {
-    const { vidArr, handleVideoChange } = this.props
+    const { vidArr } = this.props
 
     return (
       <div className='next-video'>
         <h2 className='next-video__header'>NEXT VIDEOS</h2>
-        {vidArr.sort().map(video =>
+        {vidArr.map(video =>
           <Link to={video.id} className='preview-card' key={video.id}>
             < PreviewCard
               id={video.id}
               title={video.title}
               image={video.image}
               author={video.channel}
-              handleVideoChange={handleVideoChange}
             />
           </Link>
         )}

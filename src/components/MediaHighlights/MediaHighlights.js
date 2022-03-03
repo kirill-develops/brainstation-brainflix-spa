@@ -1,7 +1,9 @@
 import MediaDetails from '../MediaDetails/MediaDetails'
 import './MediaHighlights.scss';
 
-const MediaHighlights = ({ timestamp, title, channel, views, likes, description }) => {
+const MediaHighlights = ({ videoObj }) => {
+  
+  const { title, timestamp, channel, views, likes, description } = videoObj
 
   return (
     <div className="media-highlights">
