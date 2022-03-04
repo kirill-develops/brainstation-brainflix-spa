@@ -29,6 +29,7 @@ class HomePage extends Component {
     const { videoID: currentID } = this.props.match.params
     const { videoID: prevID } = prevProps.match.params
 
+    // if ID's don't match, updates state of activeVideObj, if no ID but previously had a value, go to first video
     if (!currentID && prevID) {
       apiUtils.getVideoById(this.state.videoArray[0].id)
         .then(response => {
@@ -47,7 +48,6 @@ class HomePage extends Component {
   }
 
   updateActiveVideoObj = (vidObj) => {
-    console.log()
     this.setState({
       activeVideoObj: vidObj
     })

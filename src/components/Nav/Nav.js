@@ -13,18 +13,18 @@ const Nav = () => {
       <form className="nav__form">
         <div className="nav__mobile-form">
           <input type="search" name="search" className="nav__search" placeholder="Search"></input>
-            <Link to="/UploadPage" className=''>
+          <Link to="/UploadPage" className=''>
             <button className='nav__button--tablet nav__button-text'>
               UPLOAD
-          </button>
-            </Link>
+            </button>
+          </Link>
           <img src={avatar} className="nav__avatar" alt="user avatar" htmlFor="search"></img>
         </div>
-        <button className="nav__button">
-          <Link to="/UploadPage" className=' nav__button-text'>
+        <Link to="/UploadPage" >
+          <button className="nav__button nav__button-text">
             UPLOAD
-          </Link>
-        </button>
+          </button>
+        </Link>
       </form>
     </nav>
   );

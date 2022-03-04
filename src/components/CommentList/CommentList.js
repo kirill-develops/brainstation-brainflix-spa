@@ -6,7 +6,6 @@ const CommentList = ({ commentsArr, videoId, updateActiveVideoObj }) => {
   return (
     <div className="comment-list">
       {commentsArr.sort((a,b)=> b.timestamp - a.timestamp).map(comment => {
-        console.log(comment)
         const { id, name, timestamp, comment: commentData } = comment;
 
         return (
