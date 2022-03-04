@@ -1,13 +1,11 @@
 import { Component } from 'react'
-import axios from 'axios';
-
 
 import Media from '../../components/Media/Media';
 import MediaHighlights from '../../components/MediaHighlights/MediaHighlights';
 import CommentInput from '../../components/CommentInput/CommentInput';
 import CommentList from '../../components/CommentList/CommentList';
 import NextVideo from '../../components/NextVideo/NextVideo';
-// import apiUtils from '../../utils/apiUtils';
+import apiUtils from '../../utils/apiUtils';
 
 class HomePage extends Component {
   state = {
@@ -16,41 +14,43 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    axios.get(`https://project-2-api.herokuapp.com/videos?api_key=ff9c2a43-3766-47e2-a1f6-cc47352e52a0`)
+    apiUtils.getAll()
       .then(response => {
-        this.setState({
-          videoArray: response.data,
-        })
-        axios.get(`https://project-2-api.herokuapp.com/videos/${this.state.videoArray[0].id}?api_key=ff9c2a43-3766-47e2-a1f6-cc47352e52a0`)
+        this.setState({ videoArray: response.data })
+        apiUtils.getVideoById(this.state.videoArray[0].id)
           .then(response => {
-            this.setState({
-              activeVideoObj: response.data,
-            })
-          })
-
+            this.setState({ activeVideoObj: response.data })
+              .catch(error => { return <p>Error fetching data, please try reloading in a few moments</p> })
+          }).catch(error => { return <p>Error fetching data, please try reloading in a few moments</p> })
       })
   }
 
   componentDidUpdate(prevProps) {
-
     const { videoID: currentID } = this.props.match.params
     const { videoID: prevID } = prevProps.match.params
 
     if (!currentID && prevID) {
-      axios.get(`https://project-2-api.herokuapp.com/videos/${this.state.videoArray[0].id}?api_key=ff9c2a43-3766-47e2-a1f6-cc47352e52a0`)
+      apiUtils.getVideoById(this.state.videoArray[0].id)
         .then(response => {
           this.setState({
             activeVideoObj: response.data,
           })
         })
     } else if (prevID !== currentID) {
-      axios.get(`https://project-2-api.herokuapp.com/videos/${currentID}?api_key=ff9c2a43-3766-47e2-a1f6-cc47352e52a0`)
+      apiUtils.getVideoById(currentID)
         .then(response => {
           this.setState({
             activeVideoObj: response.data,
           })
         })
     }
+  }
+
+  updateActiveVideoObj = (vidObj) => {
+    console.log()
+    this.setState({
+      activeVideoObj: vidObj
+    })
   }
 
   render() {
@@ -76,9 +76,13 @@ class HomePage extends Component {
             />
             <CommentInput
               commentSum={comments.length}
-            />
+              videoId={id}
+              updateActiveVideoObj={this.updateActiveVideoObj}
+              />
             <CommentList
               commentsArr={comments}
+              videoId={id}
+              updateActiveVideoObj={this.updateActiveVideoObj}
             />
           </div>
 

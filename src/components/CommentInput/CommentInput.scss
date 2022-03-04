@@ -84,6 +84,11 @@
       color: $brainFlix-darkBlack;
     }
 
+    &--invalid {
+      @extend .comment-input__field;
+      border-color: $form-border-error-color;
+    }
+
     @include tablet {
       height: 42px;
       margin-right: $tablet-component-padding;

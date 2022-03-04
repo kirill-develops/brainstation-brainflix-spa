@@ -1,40 +1,90 @@
-import { Link } from 'react-router-dom'
-import "./CommentInput.scss"
-import avatar from "../../assets/Images/Mohan-muruge.jpg"
 import { Component } from 'react'
+import apiUtils from '../../utils/apiUtils';
+
+import avatar from "../../assets/Images/Mohan-muruge.jpg"
+import "./CommentInput.scss"
 
 class CommentInput extends Component {
   state = {
-    commentValue: ""
+    commentValue: "",
+    nameValue: "Mohan Muruge",
+    clicked: false
   }
 
-  handleCommentChange = (event) => {
-    console.log(event)
-    this.setState({ commentValue: event.target.value });
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  // checks in the handleSubmit if the form is valid
+  isFormValid = () => {
+    if (!this.state.commentValue) {
+      return false;
+    }
+    return true;
+  }
+
+  // used to trigger red outline on comment field after buttom is pressed but comment field fails validation
+  isCommentValid = () => {
+    if (!this.state.commentValue && this.state.clicked) {
+      return false;
+    }
+    return true;
   }
 
   handleSubmit(event) {
-    // validate there is both a  at least two words
+    event.preventDefault();
+
+    if (this.isFormValid()) {
+      apiUtils.postVideoComment(this.props.videoId, this.state.nameValue, this.state.commentValue)
+        .then(() => {
+          apiUtils.getVideoById(this.props.videoId)
+            .then(result => this.props.updateActiveVideoObj(result.data))
+        })
+    } else {
+      //set focus to comment field
+      this.setState({ clicked: true })
+    }
     // api.post with name & comment
   }
 
   render() {
+
     const { commentSum } = this.props
+
     return (
-      console.log(this.state.commentValue),
+
       <section className="comment-input">
-        <h3 className="comment-input__header">{commentSum} Comments</h3>
-        <form onSubmit={this.handleSubmit} className="comment-input__form" id="newComment">
-          <img className="comment-input__avatar" htmlFor="userComment" src={avatar} alt=""></img>
+        <h3
+          className="comment-input__header">
+          {commentSum} Comments
+        </h3>
+
+        <form onSubmit={this.handleSubmit} className="comment-input__form">
+          <img
+            htmlFor="userComment"
+            src={avatar}
+            alt={`${this.state.nameValue}'s profile`}
+            className="comment-input__avatar"
+          />
           <div className="comment-input__right">
-            <label className="comment-input__label" htmlFor="userComment">JOIN THE CONVERSATION</label>
+            <label
+              htmlFor="userComment"
+              className="comment-input__label">
+              JOIN THE CONVERSATION</label>
             <div className="comment-input__right-container">
-                <textarea onChange={this.handleCommentChange} value={this.state.commentValue} className="comment-input__field" id="userComment" name="userComment" placeholder="Add a new comment"></textarea>
-              <Link to="" className=''>
-                <button className="comment-input__button comment-input__button-text" onClick={(e) => e.preventDefault}>
-                  COMMENT
-                </button>
-              </Link>
+              <textarea
+                onChange={this.handleChange}
+                value={this.state.commentValue}
+                name="commentValue"
+                placeholder="Add a new comment"
+                className={`comment-input__field ${this.isCommentValid() ? "" : "comment-input__field--invalid"}`}
+              />
+              <button
+                // disabled={!this.isFormValid()}
+                className="comment-input__button comment-input__button-text"
+                onClick={(e) => this.handleSubmit(e)}>
+                COMMENT
+              </button>
             </div>
           </div>
         </form>

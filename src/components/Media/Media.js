@@ -1,8 +1,8 @@
 import './Media.scss';
 
-const Media = ({poster, video}) => { 
+const Media = ({poster}) => { 
   return (
-    <video src={video} poster={poster} className="media" controls></video>
+    <video poster={poster} className="media" controls></video>
   );
 };
 

@@ -1,20 +1,23 @@
 import Comment from "../Comment/Comment";
 import './CommentList.scss';
 
-const CommentList = ({ commentsArr }) => {
+const CommentList = ({ commentsArr, videoId, updateActiveVideoObj }) => {
 
   return (
     <div className="comment-list">
-      {commentsArr.map(comment => {
-
-        const { name, timestamp, comment: commentData } = comment;
+      {commentsArr.sort((a,b)=> b.timestamp - a.timestamp).map(comment => {
+        console.log(comment)
+        const { id, name, timestamp, comment: commentData } = comment;
 
         return (
           <Comment
             name={name}
-            timestamp={timestamp}
             comment={commentData}
-            key={timestamp}
+            commentId={id}
+            videoId={videoId}
+            timestamp={timestamp}
+            updateActiveVideoObj={updateActiveVideoObj}
+            key={id}
           />
         )
       })}
