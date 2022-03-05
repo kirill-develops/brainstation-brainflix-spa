@@ -36,6 +36,10 @@
     @include avatar;
     position: relative;
     top: 1.5rem;
+
+    &--disabled {
+      filter: grayscale(1);
+    }
   }
 
   &__right {
@@ -68,7 +72,17 @@
 
     &--error {
       @extend .comment-input__label;
+      margin-top: $form-label-space;
+      margin-bottom: $form-label-space;
       color: $form-border-error-color;
+    }
+    
+    &--disabled {
+      @extend .comment-input__label;
+      margin-top: $form-label-space;
+      margin-bottom: $form-label-space;
+      color: $white;
+
     }
 
     @include tablet {
@@ -92,6 +106,14 @@
     &--invalid {
       @extend .comment-input__field;
       border-color: $form-border-error-color;
+
+    }
+
+    &--disabled {
+
+      &::placeholder {
+        color: $alabaster;
+      }
     }
 
     @include tablet {
@@ -112,7 +134,7 @@
       padding: 0 $cta-tablet-horizontal-padding;
     }
 
-    &--error {
+    &--disabled {
       filter: grayscale(1);
 
       &:hover {

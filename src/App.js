@@ -27,7 +27,7 @@ const App = () => {
           />
         } />
         <Route path="/UploadPage" component={UploadPage} />
-        <Route path="/:videoID" render={(routerProps) =>
+        <Route path="/video/:videoID" render={(routerProps) =>
           <HomePage
             {...routerProps}
           />

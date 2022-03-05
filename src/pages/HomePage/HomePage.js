@@ -15,12 +15,10 @@ class HomePage extends Component {
 
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
-    console.log(errorMessage)
     apiUtils.getAll()
       .then(response => {
         this.setState({ videoArray: response.data })
-
-        const plantId = this.props.match.params.id || this.state.videoArray[0].id
+        const plantId = this.props.match.params.videoID || this.state.videoArray[0].id
         
         apiUtils.getVideoById(plantId)
           .then(response => {
