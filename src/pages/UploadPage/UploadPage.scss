@@ -1,3 +1,88 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/color\s' as *;
+
 .upload-page {
+  @include divider-top;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
   
+  @include tablet {
+    align-items: flex-end;
+
+  }
+
+  &__headline {
+    @include font-page-header-mobile;
+    @include header-mobile-padding;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &__image {
+    box-sizing: border-box;
+    margin-left: $mobile-component-padding;
+    margin-right: $mobile-component-padding;
+    margin-bottom: $mobile-component-padding;
+    border-radius: $cta-border-radius;
+  }
+  &__label {
+    display: block;
+    margin: 0;
+    @include font-label-button-mobile;
+    padding-left: $mobile-component-padding;
+    padding-right: $mobile-component-padding;
+    color: $secondary-font-color;
+  }
+  &__form {
+    width: 100%;
+  }
+  &__input {
+    @include form;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: $mobile-component-padding;
+    
+    &--big {
+      @extend .upload-page__input;
+      @include form;
+      resize: none;
+      height: 5rem;
+    }
+
+    &--invalid {
+      @extend .upload-page__input;
+      border-color: $form-border-error-color;
+    }
+
+  }
+
+  &__publish-button {
+    @include button;
+    @include font-label-button-mobile;
+    @include button-text;
+    display: block;
+    margin-bottom: $mobile-component-padding;
+    background-image: url('../../assets/Icons/publish.svg');
+
+    @include tablet {
+      display: inline-block;
+    }
+  };
+  &__cancel-button {
+    @include button-alt;
+    @include font-label-button-mobile;
+    margin-bottom: $mobile-component-padding;
+  }
+  &__submit-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 }

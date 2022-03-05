@@ -32,7 +32,7 @@ class CommentInput extends Component {
     return true;
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     if (this.isFormValid()) {
