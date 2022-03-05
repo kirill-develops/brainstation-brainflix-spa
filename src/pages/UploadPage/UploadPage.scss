@@ -9,34 +9,76 @@
   box-sizing: border-box;
   width: 100%;
   flex-direction: column;
+  padding-left: $mobile-component-padding;
+  padding-right: $mobile-component-padding;
   
   @include tablet {
-    align-items: flex-end;
+    padding-left: $tablet-component-padding;
+    padding-right: $tablet-component-padding;
+  }
 
+  @include desktop {
+    padding-left: $desktop-upload-horizontal-padding;
+    padding-right: $desktop-upload-horizontal-padding;
   }
 
   &__headline {
     @include font-page-header-mobile;
     @include header-mobile-padding;
+    padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
+
+    @include desktop {
+      padding-bottom: $tablet-component-padding;
+    }
   }
 
   &__image {
     box-sizing: border-box;
-    margin-left: $mobile-component-padding;
-    margin-right: $mobile-component-padding;
     margin-bottom: $mobile-component-padding;
     border-radius: $cta-border-radius;
+    bottom: 0;
+    width: 100%;
+
+    @include tablet {
+      width: 50%;
+    }
+
+    @include desktop {
+      width: 100%;
+    }
   }
   &__label {
     display: block;
     margin: 0;
     @include font-label-button-mobile;
-    padding-left: $mobile-component-padding;
-    padding-right: $mobile-component-padding;
     color: $secondary-font-color;
+    
+    &--image{
+      @extend .upload-page__label;
+      display: inline-flex;
+      flex-direction: column;
+      width: fit-content;
+      
+      @include desktop {
+        margin-right: 1.5rem;
+        width: 50%;
+
+      }
+    }
   }
+
+  &__form-block {
+    
+    @include desktop {
+      @include divider-top;
+      padding-top: $tablet-comment-vertical-padding;
+      display: flex;
+
+    }
+  }
+
   &__form {
     width: 100%;
   }
@@ -52,6 +94,10 @@
       @include form;
       resize: none;
       height: 5rem;
+
+      @include desktop {
+        height: 8.2vw;
+      }
     }
 
     &--invalid {
@@ -59,6 +105,13 @@
       border-color: $form-border-error-color;
     }
 
+  }
+
+  &__button-block {
+    @include tablet{
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 
   &__publish-button {
@@ -70,19 +123,24 @@
     background-image: url('../../assets/Icons/publish.svg');
 
     @include tablet {
-      display: inline-block;
+      order: 2;
+      margin-left: $tablet-component-padding;
     }
   };
   &__cancel-button {
     @include button-alt;
     @include font-label-button-mobile;
     margin-bottom: $mobile-component-padding;
+
+    @include tablet {
+      order: 1;
+    }
   }
-  &__submit-block {
+
+  &__submitted-block {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-
 }

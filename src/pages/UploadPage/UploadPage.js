@@ -46,45 +46,51 @@ class UploadPage extends Component {
         {!this.state.submitted &&
           <>
             <h1 className='upload-page__headline'>Upload Video</h1>
-            <h2 className='upload-page__label'>VIDEO THUMBNAIL</h2>
-            <img src={heroImage} alt='' className='upload-page__image' />
-            <form onSubmit={(event) => this.handleSubmit(event)}
-              className="upload-page__form">
-              <label htmlFor='videoTitle'
-                className='upload-page__label'
-              >TITLE YOUR VIDEO
-                <input
-                  name='videoTitle'
-                  onChange={this.handleChange}
-                  value={this.state.videoTitle}
-                  type='text'
-                  placeholder='Add a title to your video'
-                  className={`upload-page__input ${this.state.clicked && this.state.videoTitle === "" ? "upload-page__input--invalid" : ""}`}
-                />
-              </label>
-              <label htmlFor='videoDescription'
-                className='upload-page__label'
-              >ADD A VIDEO DESCRIPTION
-                <textarea
-                  name='videoDescription'
-                  onChange={this.handleChange}
-                  value={this.state.videoDescription}
-                  placeholder="Add a description to your video"
-                  className={`upload-page__input--big ${this.state.clicked && this.state.videoDescription === "" ? "upload-page__input--invalid" : ""}`}
-                />
-              </label>
-              <button className='upload-page__publish-button'>
-                PUBLISH
-              </button>
-              <button className='upload-page__cancel-button'>
-                CANCEL
-              </button>
-            </form>
+            <div className='upload-page__form-block'>
+            <label className='upload-page__label--image'>VIDEO THUMBNAIL
+              <img src={heroImage} alt='' className='upload-page__image'/>
+            </label>
+              <form onSubmit={(event) => this.handleSubmit(event)}
+                className="upload-page__form">
+                <label htmlFor='videoTitle'
+                  className='upload-page__label'
+                >TITLE YOUR VIDEO
+                  <input
+                    name='videoTitle'
+                    onChange={this.handleChange}
+                    value={this.state.videoTitle}
+                    type='text'
+                    placeholder='Add a title to your video'
+                    className={`upload-page__input ${this.state.clicked && this.state.videoTitle === "" ? "upload-page__input--invalid" : ""}`}
+                  />
+                </label>
+                <label htmlFor='videoDescription'
+                  className='upload-page__label'
+                >ADD A VIDEO DESCRIPTION
+                  <textarea
+                    name='videoDescription'
+                    onChange={this.handleChange}
+                    value={this.state.videoDescription}
+                    placeholder="Add a description to your video"
+                    className={`upload-page__input--big ${this.state.clicked && this.state.videoDescription === "" ? "upload-page__input--invalid" : ""}`}
+                  />
+                </label>
+
+                <div className='upload-page__button-block'>
+                  <button className='upload-page__publish-button'>
+                    PUBLISH
+                  </button>
+                  <button className='upload-page__cancel-button'>
+                    CANCEL
+                  </button>
+                </div>
+              </form>
+            </div>
           </>
         }
 
         {this.state.submitted &&
-          <div className='upload-page__submit-block'>
+          <div className='upload-page__submitted-block'>
             <p className='upload-page__headline'>
               Thank you for Upload!
             </p>
