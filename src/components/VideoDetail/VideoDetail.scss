@@ -1,0 +1,75 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/color\s' as *;
+
+.video-detail {
+  @include element-mobile-padding;
+  @include divider-bottom ;
+  list-style: none;
+  margin: 0 $mobile-component-padding;
+  padding: 0 0 $mobile-component-padding;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__label {
+    @include font-body-mobile;
+    color: $silver;
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0.3rem 0;
+    white-space: nowrap;
+
+    &--special {
+      @extend .video-detail__label;
+      @include font-subheader-mobile;
+    }
+
+    &--left {
+      padding-right: $mobile-component-padding;
+    }
+
+    &--right {
+      padding-left: $mobile-component-padding;
+    }
+
+    @include tablet {
+      display: flex;
+      width: max-content;
+    }
+  }
+
+  &__icon {
+   margin-right: 0.5rem; 
+  }
+
+  &--tablet {
+    display: none;
+
+    @include tablet {
+      @include block-tablet-margin;
+      @include divider-bottom;
+      list-style: none;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0 0 $form-label-space;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      margin-right: 0;
+      padding-right: $tablet-component-padding;
+    }
+  }
+
+  @include tablet {
+    display: none;
+  }
+}

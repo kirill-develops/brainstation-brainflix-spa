@@ -1,0 +1,38 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/color\s' as *;
+
+.video-info {
+  
+  &__title {
+    @include font-page-header-mobile;
+    @include block-mobile-margin;
+    @include header-mobile-padding;
+    @include divider-bottom ;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 0;
+
+    @include tablet {
+      @include header-tablet-padding;
+      margin: 0 $tablet-component-padding;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: $form-label-space;
+      border: none;
+    }
+  }
+  
+  &__content {
+    @include block-mobile-margin;
+    @include font-body-mobile;
+    margin-bottom: 0;
+    
+    @include tablet {
+      @include block-tablet-margin;
+      margin-bottom: 0;
+    }
+    
+  }
+}
