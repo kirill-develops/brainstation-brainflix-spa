@@ -32,7 +32,7 @@ class UploadPage extends Component {
       this.setState({ submitted: true })
       setTimeout(() => {
         this.props.history.push("/");
-      }, 7000);
+      }, 9000);
     } else {
       this.setState({ clicked: true });
       console.log(this.state.clicked)
@@ -46,12 +46,13 @@ class UploadPage extends Component {
         {!this.state.submitted &&
           <>
             <h1 className='upload-page__headline'>Upload Video</h1>
-            <div className='upload-page__form-block'>
-            <label className='upload-page__label--image'>VIDEO THUMBNAIL
-              <img src={heroImage} alt='' className='upload-page__image'/>
-            </label>
-              <form onSubmit={(event) => this.handleSubmit(event)}
-                className="upload-page__form">
+            <form onSubmit={(event) => this.handleSubmit(event)}
+              className="upload-page__form">
+              <label className='upload-page__label--image'>VIDEO THUMBNAIL
+                <img src={heroImage} alt='' className='upload-page__image' />
+              </label>
+              <div className='upload-page__form-block'>
+
                 <label htmlFor='videoTitle'
                   className='upload-page__label'
                 >TITLE YOUR VIDEO
@@ -75,6 +76,7 @@ class UploadPage extends Component {
                     className={`upload-page__input--big ${this.state.clicked && this.state.videoDescription === "" ? "upload-page__input--invalid" : ""}`}
                   />
                 </label>
+              </div>
 
                 <div className='upload-page__button-block'>
                   <button className='upload-page__publish-button'>
@@ -84,12 +86,12 @@ class UploadPage extends Component {
                     CANCEL
                   </button>
                 </div>
-              </form>
-            </div>
+            </form>
           </>
         }
 
-        {this.state.submitted &&
+        {
+          this.state.submitted &&
           <div className='upload-page__submitted-block'>
             <p className='upload-page__headline'>
               Thank you for Upload!
@@ -102,7 +104,7 @@ class UploadPage extends Component {
             </p>
           </div>
         }
-      </div>
+      </div >
     )
   }
 }

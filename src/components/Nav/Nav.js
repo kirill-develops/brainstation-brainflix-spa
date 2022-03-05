@@ -11,20 +11,24 @@ const Nav = () => {
         <img src={logo} className="nav__logo" alt="site logo"></img>
       </Link>
       <form className="nav__form">
-        <div className="nav__mobile-form">
-          <input type="search" name="search" className="nav__search" placeholder="Search"></input>
-          <Link to="/UploadPage" className=''>
-            <button className='nav__button--tablet nav__button-text'>
-              UPLOAD
-            </button>
-          </Link>
-          <img src={avatar} className="nav__avatar" alt="user avatar" htmlFor="search"></img>
-        </div>
-        <Link to="/UploadPage" >
-          <button className="nav__button nav__button-text">
-            UPLOAD
-          </button>
+
+          <input type="search"
+            name="search"
+            placeholder="Search"
+            className="nav__search"
+        >
+        </input>
+          <img src={avatar}
+            htmlFor="search"
+            alt="user avatar"
+            className="nav__avatar"
+          />
+        <Link to="/Upload" className='nav__button nav__button-text'>
+          <span className='nav__button-text'>
+          UPLOAD
+          </span>
         </Link>
+        
       </form>
     </nav>
   );

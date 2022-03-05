@@ -30,7 +30,30 @@
     margin-bottom: 0;
 
     @include desktop {
+      @include divider-bottom;
       padding-bottom: $tablet-component-padding;
+
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    @include desktop {
+      margin-top: $tablet-comment-vertical-padding;
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__form-block {
+    
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      height: 100%;
+      
     }
   }
 
@@ -49,12 +72,18 @@
       width: 100%;
     }
   }
+
   &__label {
     display: block;
     margin: 0;
     @include font-label-button-mobile;
     color: $secondary-font-color;
     
+    @include desktop {
+      width: 100%;
+      flex: 1.25;
+    }
+
     &--image{
       @extend .upload-page__label;
       display: inline-flex;
@@ -63,25 +92,13 @@
       
       @include desktop {
         margin-right: 1.5rem;
-        width: 50%;
-
+        flex: 0.5;
+        height: 100%;
       }
     }
   }
 
-  &__form-block {
-    
-    @include desktop {
-      @include divider-top;
-      padding-top: $tablet-comment-vertical-padding;
-      display: flex;
 
-    }
-  }
-
-  &__form {
-    width: 100%;
-  }
   &__input {
     @include form;
     display: block;
@@ -96,7 +113,7 @@
       height: 5rem;
 
       @include desktop {
-        height: 8.2vw;
+        height: 8vw;
       }
     }
 
@@ -104,13 +121,20 @@
       @extend .upload-page__input;
       border-color: $form-border-error-color;
     }
-
   }
 
   &__button-block {
+
     @include tablet{
       display: flex;
       justify-content: flex-end;
+    }
+
+    @include desktop {
+      @include divider-top;
+      width: 100%;
+      margin-top: $mobile-component-padding;
+      padding-top: $tablet-comment-vertical-padding;
     }
   }
 
@@ -126,7 +150,8 @@
       order: 2;
       margin-left: $tablet-component-padding;
     }
-  };
+  }
+
   &__cancel-button {
     @include button-alt;
     @include font-label-button-mobile;
@@ -142,5 +167,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
   }
 }

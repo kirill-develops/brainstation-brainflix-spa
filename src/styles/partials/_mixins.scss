@@ -115,19 +115,21 @@
     min-width: $cta-tablet-min-width;
   }
 }
+@mixin button-text {
+  color: $cta-text-color;
+  text-decoration: none;
+}
 
 @mixin button-alt {
   @include button;
    background-color: $cta-text-color;
    color: $cta-background-color;
+
    &:hover {
     background-color: $mercury;
    }
 }
-@mixin button-text {
-  color: $cta-text-color;
-  text-decoration: none;
-}
+
 @mixin form {
   font-family: $root-font-stack;
   height: $form-mobile-height;
@@ -139,7 +141,6 @@
   
   &::placeholder {
     color: $form-color;
-
   }
 }
 @mixin divider-bottom  {

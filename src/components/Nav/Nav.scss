@@ -9,6 +9,16 @@
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+
+  @include tablet {
+    @include block-tablet-margin;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  @include desktop {
+    padding: 0 $desktop-main-horizontal-padding;
+  }
   
   &__logo {
     max-height: $logo-max-height;
@@ -22,6 +32,10 @@
   &__form {
     box-sizing: border-box;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     
     @include tablet {
       width: 80%;
@@ -29,20 +43,6 @@
       justify-content: flex-end;
     }
   };
-
-  &__mobile-form {
-    box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: nowrap;
-
-    @include tablet {
-      width: initial;
-    }
-  }
-
   &__search {
     background:  url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
     @include block-mobile-margin;
@@ -50,7 +50,7 @@
     font-size: 0.75rem;
     margin-left: 0;
     box-sizing: border-box;
-    width: 100%;
+    flex: 1;
     padding-left: 36px;
    
     @include tablet {
@@ -66,43 +66,30 @@
 
     @include tablet {
       margin: 0 0 0 $tablet-component-padding;
+      order:3;
     }
-  };
+  }
 
   &__button {
     @include button;
     @include font-label-button-mobile;
     background-image: url('../../assets/Icons/upload.svg');
+    display: flex;
+    flex: 1 1 2;
+    justify-content: center;
+    align-items: center;
     
-    &--tablet {
-      display: none;
-      
       @include tablet {
         @include button;
         @include font-label-button-mobile;
-        display: inline-block;
         background-image: url('../../assets/Icons/upload.svg');
         padding: 0 $cta-tablet-horizontal-padding;
+        order: 2;
       }
-    }
-    
-    @include tablet {
-      display: none;
-    }
-  };
+  }
 
   &__button-text {
     @include font-label-button-mobile;
     @include button-text;
   }
-
-  @include tablet {
-    @include block-tablet-margin;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-
-  @include desktop {
-    padding: 0 $desktop-main-horizontal-padding;
-  }
-};
+}
