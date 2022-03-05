@@ -1,11 +1,11 @@
 import { Component } from 'react'
+import apiUtils from '../../utils/apiUtils';
 
-import Media from '../../components/Media/Media';
+import VideoBlock from '../../components/VideoBlock/VideoBlock';
 import VideoInfo from '../../components/VideoInfo/VideoInfo';
 import CommentInput from '../../components/CommentInput/CommentInput';
 import CommentList from '../../components/CommentList/CommentList';
 import NextVideo from '../../components/NextVideo/NextVideo';
-import apiUtils from '../../utils/apiUtils';
 
 class HomePage extends Component {
   state = {
@@ -68,7 +68,7 @@ class HomePage extends Component {
 
     return (
       <div className='App'>
-        <Media poster={image} video={video} id={id} />
+        <VideoBlock poster={image} video={video} id={id} />
 
         <div className='main--desktop'>
 
