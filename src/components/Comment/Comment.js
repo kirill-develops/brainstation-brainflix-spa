@@ -10,21 +10,18 @@ class Comment extends Component {
     relDate: LastSeen(this.props.timestamp)
   }
 
-  // supposed to auto refresh the reletive time every 10sec
-  componentDidMount() {
-    this.timerID = setInterval(() => { this.setState({ relDate: LastSeen(this.props.timestamp) }) }, 10000)
-  }
 
   handleClick = () => {
-    apiUtils.deleteVideoComment(this.props.videoId, this.props.commentId)
+    const { videoId, commentId, updateActiveVideoObj } = this.props
+    apiUtils.deleteVideoComment(videoId, commentId)
       .then(() => {
-        apiUtils.getVideoById(this.props.videoId)
-          .then(result => this.props.updateActiveVideoObj(result.data))
+        apiUtils.getVideoById(videoId)
+          .then(result => updateActiveVideoObj(result.data))
       })
   }
 
   render() {
-
+    const { relDate } = this.state
     const { name, comment } = this.props
     return (
       <>
@@ -39,7 +36,7 @@ class Comment extends Component {
           </div>
           <div className="comment__right">
             <h3 className="comment__name">{name}</h3>
-            <h4 className="comment__date">{this.state.relDate}</h4>
+            <h4 className="comment__date">{relDate}</h4>
             <p className="comment__content">{comment}</p>
           </div>
         </div>

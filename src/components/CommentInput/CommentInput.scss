@@ -66,6 +66,11 @@
     padding-bottom: $form-label-space;
     color: $secondary-font-color;
 
+    &--error {
+      @extend .comment-input__label;
+      color: $form-border-error-color;
+    }
+
     @include tablet {
       box-sizing: border-box;
       width: 100%;
@@ -106,6 +111,17 @@
       display: inline-block;
       padding: 0 $cta-tablet-horizontal-padding;
     }
+
+    &--error {
+      filter: grayscale(1);
+
+      &:hover {
+        background-color: $cta-background-color;
+        cursor: initial;
+      }
+    }
+
+    
   }
   
   &__button-text {

@@ -6,7 +6,22 @@
 .comment {
   @include divider-top ;
   display: flex;
-  padding: $mobile-component-padding 0;
+  padding: $mobile-component-padding 0 calc($mobile-component-padding - 3%);
+
+  @include tablet {
+    padding: $tablet-comment-vertical-padding 0 $mobile-component-padding;
+  }
+
+  @include desktop {
+    margin-right: 0;
+    padding-right: $tablet-component-padding;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
   
   &__avatar {
     @include avatar;
@@ -18,23 +33,31 @@
   };
 
   &__icon {
-    margin-top: $form-label-space;
-    height: 1.25rem;
-
+    margin-top: 25%;
+    padding: 0.1rem 20%;
+    background-color: $alabaster;
+    border-radius: $cta-border-radius;
+    border: 1.5px solid $alabaster;
+    height: 1.15rem;
+    filter: opacity(0.35);
+    
     &:hover {
       cursor: pointer;
+      background-color: $mercury;
+      border: 1.5px solid $brainFlix-black;
     }
-  }
 
-  &__left {
-    display: flex;
-    flex-direction: column;
+    @include tablet {
+      height: 1.25rem;
+      margin-top: 0.5rem;
+    }
   }
 
   &__right {
     margin-left: $mobile-component-padding;
     display: flex;
     width: 100%;
+    height: 100%;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
@@ -63,14 +86,4 @@
     width: 100%;
     margin-bottom: 0;
   };
-
-  @include tablet {
-    padding: $tablet-comment-vertical-padding 0;
-  }
-
-  @include desktop {
-    margin-right: 0;
-    padding-right: $tablet-component-padding;
-
-  }
 }
