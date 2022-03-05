@@ -1,7 +1,7 @@
 import { Component } from 'react'
 
 import Media from '../../components/Media/Media';
-import MediaHighlights from '../../components/MediaHighlights/MediaHighlights';
+import VideoInfo from '../../components/VideoInfo/VideoInfo';
 import CommentInput from '../../components/CommentInput/CommentInput';
 import CommentList from '../../components/CommentList/CommentList';
 import NextVideo from '../../components/NextVideo/NextVideo';
@@ -74,7 +74,7 @@ class HomePage extends Component {
 
           <div className="main__left--desktop">
 
-            <MediaHighlights
+            <VideoInfo
               videoObj={activeVideoObj}
             />
             <CommentInput
