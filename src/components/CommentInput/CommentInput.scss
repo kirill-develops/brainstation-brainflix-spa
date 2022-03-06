@@ -17,6 +17,10 @@
       @include header-tablet-padding;
       margin: 0;
     }
+
+    @include desktop {
+      padding-left: 0;
+    }
   }
 
   &__form {
@@ -29,6 +33,10 @@
     @include tablet {
       padding-bottom: $tablet-component-padding;
       margin: 0 $tablet-component-padding;
+    }
+
+    @include desktop {
+      margin-left: 0;
     }
   }
 
@@ -52,6 +60,10 @@
     @include tablet {
       flex-direction: row;
       flex-wrap: wrap;
+    }
+
+    @include desktop {
+      padding-left: $tablet-component-padding;
     }
   }
 

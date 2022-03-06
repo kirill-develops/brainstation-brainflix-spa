@@ -28,15 +28,12 @@
   &__headline {
     @include font-page-header-mobile;
     @include header-mobile-padding;
-    padding-left: 0;
     margin-top: 0;
     margin-bottom: 0;
 
     @include desktop {
       @include header-mobile-padding;
       @include divider-bottom;
-      margin-left: $mobile-component-padding;
-      margin-right: $mobile-component-padding;
       padding-left: 0;
       padding-right: 0;
 
@@ -55,8 +52,6 @@
       padding-top: $tablet-comment-vertical-padding;
       display: flex;
       flex-wrap: wrap;
-      padding-left: $mobile-component-padding;
-      padding-right: $mobile-component-padding;
     }
   }
 
@@ -89,7 +84,6 @@
 
   &__label {
     display: block;
-    margin: 0;
     @include font-label-button-mobile;
     color: $secondary-font-color;
     
@@ -105,7 +99,7 @@
       width: fit-content;
       
       @include desktop {
-        margin-right: 1.5rem;
+        padding-right: 1.5rem;
         flex: 0.5;
         height: 100%;
       }

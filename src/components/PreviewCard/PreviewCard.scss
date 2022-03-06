@@ -12,6 +12,10 @@
   margin-left: (-8px);
   border: 1px solid rgba(255, 255, 255, 0);
   text-decoration: none;
+
+  @include tablet {
+    margin-bottom: calc($tablet-comment-vertical-padding / 3 - 0.37px);
+  };
   
   &__media {
     border-radius: 0.25rem;
@@ -19,13 +23,23 @@
     aspect-ratio: 17/10;
     height: 66px;
     object-fit: cover;
-    margin-left: 8px;
-    margin-right: $mobile-component-padding;
   };
+  
+  &__media-housing {
+    padding-left: 8px;
+    padding-right: $mobile-component-padding;
+    display: flex;
+    align-items: center;
+
+  }
   
   &__right {
     box-sizing: border-box;
-    padding: 4px 8px 4px 0;
+    padding: 4px 0 4px 0;
+    
+    // @include tablet{
+    //   padding: 4px 8px 4px 0;
+    // }
   };
   
   &__title {
@@ -59,8 +73,4 @@
       color: $brainFlix-darkBlue !important;
     }
   }
-
-  @include tablet {
-    margin-bottom: calc(($tablet-comment-vertical-padding / 2) - 0.37px);
-  };
 };

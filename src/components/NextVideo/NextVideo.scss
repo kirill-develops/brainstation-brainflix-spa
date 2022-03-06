@@ -7,36 +7,36 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  margin-left: $mobile-component-padding;
-  margin-right: $mobile-component-padding;
-  margin-bottom: 0.75rem;
-
-  &__header {
-    @include font-section-header-mobile;
-    margin-top: $mobile-post-heading-padding;
-    margin-bottom: $mobile-post-heading-padding;
-    width: fit-content;
-    color: $silver;
-    
-    @include tablet {
-      margin-top: $tablet-post-heading-padding;
-      margin-bottom: $tablet-post-heading-padding;
-      color: $silver;
-    }
-  }
+  padding-left: $mobile-component-padding;
+  padding-right: $mobile-component-padding;
+  padding-bottom: 0.75rem;
 
   @include tablet {
-    margin-left: $tablet-component-padding;
-    margin-right: $tablet-component-padding;
+    padding-left: $tablet-component-padding;
+    padding-right: $tablet-component-padding;
   }
 
   @include desktop {
     display: inline-flex;
     box-sizing: border-box;
     border-left: 1px solid $divider-color;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: $tablet-component-padding;
-    padding-right: $tablet-component-padding;
+    padding-left: $tablet-comment-vertical-padding;
+    padding-right: 0;
+    flex: 0.42;
+  }
+
+  &__header {
+    @include font-section-header-mobile;
+    padding-top: $mobile-post-heading-padding;
+    padding-bottom: calc($mobile-post-heading-padding / 2);
+    margin: 0;
+    width: fit-content;
+    color: $silver;
+    
+    @include tablet {
+      padding-top: $tablet-post-heading-padding;
+      padding-bottom: $tablet-post-heading-padding;
+      color: $silver;
+    }
   }
 }

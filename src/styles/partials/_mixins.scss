@@ -5,10 +5,14 @@
 
 // Padding for block, element and headers
 @mixin block-mobile-margin {
-  margin: $mobile-component-padding;
+  margin: $mobile-component-padding 0;
+  padding: 0 $mobile-component-padding;
+  // margin: $mobile-component-padding;
 }
 @mixin block-tablet-margin {
-  margin: $mobile-component-padding $tablet-component-padding;
+  margin: $mobile-component-padding 0;
+  padding: 0 $tablet-component-padding;
+  // margin: $mobile-component-padding $tablet-component-padding;
 }
 @mixin element-mobile-padding {
   padding-top: $mobile-component-padding;
