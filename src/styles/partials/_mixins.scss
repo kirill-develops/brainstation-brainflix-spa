@@ -115,6 +115,7 @@
     min-width: $cta-tablet-min-width;
   }
 }
+
 @mixin button-text {
   color: $cta-text-color;
   text-decoration: none;
@@ -140,7 +141,11 @@
   border: $form-border-default-width solid $form-border-default-color;
   
   &::placeholder {
-    color: $form-color;
+    color: $brainFlix-darkBlack;
+  }
+
+  &:focus {
+    border: 1.5px solid $brainFlix-blue;
   }
 }
 @mixin divider-bottom  {

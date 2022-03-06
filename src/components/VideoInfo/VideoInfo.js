@@ -1,4 +1,4 @@
-import VideoDetail from '../VideoDetail/VideoDetail'
+import VideoInfoPlus from '../VideoInfoPlus/VideoInfoPlus'
 import './VideoInfo.scss';
 
 const VideoInfo = ({ videoObj }) => {
@@ -9,7 +9,7 @@ const VideoInfo = ({ videoObj }) => {
     <div className="video-info">
       <h1 className="video-info__title">{title}</h1>
 
-      <VideoDetail
+      <VideoInfoPlus
         timestamp={timestamp}
         channel={channel}
         views={views}

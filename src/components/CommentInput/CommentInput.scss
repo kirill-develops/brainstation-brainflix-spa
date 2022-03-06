@@ -98,9 +98,17 @@
     height: 5rem;
     box-sizing: border-box;
     width: 100%;
-    
-    &::placeholder {
-      color: $brainFlix-darkBlack;
+
+     @include tablet {
+      height: 42px;
+      margin-right: $tablet-component-padding;
+      margin-bottom: 0;
+    }
+
+    &--active {
+      @extend .comment-input__field;
+      border-color: $form-border-active-color;
+
     }
 
     &--invalid {
@@ -116,11 +124,7 @@
       }
     }
 
-    @include tablet {
-      height: 42px;
-      margin-right: $tablet-component-padding;
-      margin-bottom: 0;
-    }
+   
   }
 
   &__button {

@@ -8,11 +8,11 @@ class CommentInput extends Component {
   state = {
     commentValue: "",
     nameValue: "Mohan Muruge",
-    clicked: 0
+    clicked: 0,
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+    this.setState({ [event.target.name]: event.target.value});   
   }
 
   // checks in the handleSubmit if the form is valid
@@ -89,7 +89,7 @@ class CommentInput extends Component {
                 {this.state.clicked === 9 && <p className='comment-input__label--error'> Who let the lemon-head into the room? You are a waste of life, and you should give up</p>}
                 {this.state.clicked === 10 && <p className='comment-input__label--error'> If I had a gun, with two bullets, and I was in a room with Hitler, Bin Laden, and Toby, I would shoot Toby twice</p>}
                 {this.state.clicked === 11 && <><p className='comment-input__label--error'> No where in your incoherent response were you even close to anything that could be considered a rational thought. Our computers are now dumber for computing it</p> <p className='comment-input__label--error'> Posting comments is suspended and may god have mercy on your soul</p></>}
-                {this.state.clicked === 12 && <p className='comment-input__label--error'> !!! LAST CHANCE !!!</p>}
+                {this.state.clicked === 12 && <p className='comment-input__label--error'> !!! I swear, this is your LAST CHANCE !!!</p>}
               </label>
               <div className="comment-input__right-container">
                 <textarea
@@ -98,7 +98,9 @@ class CommentInput extends Component {
                   value={this.state.commentValue}
                   disabled={badUser}
                   placeholder="Add a new comment"
-                  className={`comment-input__field ${((!this.isCommentValid() && this.state.clicked < 11) || this.state.clicked === 12) ? "comment-input__field--invalid" : ""}${this.state.clicked === 11 ? "comment-input__field--disabled" : ""}`}
+                  className={`comment-input__field
+                  ${((!this.isCommentValid() && this.state.clicked < 11) || this.state.clicked === 12) ? "comment-input__field--invalid" : ""}
+                  ${this.state.clicked === 11 ? "comment-input__field--disabled" : ""}`}
                 />
                 <button className={`comment-input__button comment-input__button-text ${badUser && "comment-input__button--disabled"}`}>
                   COMMENT

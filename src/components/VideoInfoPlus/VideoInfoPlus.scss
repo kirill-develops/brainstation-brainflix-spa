@@ -1,0 +1,89 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/color\s' as *;
+
+.video-info-plus {
+  @include element-mobile-padding;
+  @include divider-bottom ;
+  list-style: none;
+  margin: 0 $mobile-component-padding;
+  padding: 0 0 $mobile-component-padding;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  @include tablet {
+    @include block-tablet-margin;
+    @include divider-bottom;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 0 $form-label-space;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  @include desktop {
+    margin-right: 0;
+    padding-right: $tablet-component-padding;
+  }
+  
+  &__label {
+    @include font-body-mobile;
+    color: $silver;
+    box-sizing: border-box;
+    width: 50%;
+    margin: 0.3rem 0;
+    white-space: nowrap;
+
+    @include tablet {
+      display: flex;
+      width: max-content;
+    }
+    
+    &--special {
+      @extend .video-info-plus__label;
+      @include font-subheader-mobile;
+
+      @include tablet {
+        order:1;
+        flex: 1 1 1;
+      }
+    }
+
+    &--date {
+      @extend .video-info-plus__label;
+    
+      @include tablet {
+        order: 2;
+        flex: 1 1 0;
+        margin-left: $tablet-component-padding;
+      }
+    }
+  
+    &--views {
+      @extend .video-info-plus__label;
+    
+      @include tablet {
+        order: 3;
+        flex: 1 1 2;
+        margin-right: $tablet-component-padding;
+      }
+    }
+  
+    &--likes {
+      @extend .video-info-plus__label;
+      
+      @include tablet {
+        order: 4;
+        flex: 1 2 2;
+      }
+    }
+  }
+
+  &__icon {
+   margin-right: 0.5rem; 
+  }
+}
