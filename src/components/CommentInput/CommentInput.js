@@ -52,6 +52,13 @@ class CommentInput extends Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    console.log(this.props.videoId, prevProps.videoId);
+    if (this.props !== prevProps ) {
+      this.setState({ clicked: 0})
+    }
+  }
+
   render() {
 
     const { commentSum } = this.props
@@ -109,7 +116,7 @@ class CommentInput extends Component {
             </div>
           </form>
         }
-      </section >
+      </section>
     );
   }
 };

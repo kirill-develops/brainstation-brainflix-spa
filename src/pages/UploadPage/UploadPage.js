@@ -28,14 +28,14 @@ class UploadPage extends Component {
     event.preventDefault();
 
     if (this.isValueValid()) {
-      console.warn("Your Video is Uploading");
+
       this.setState({ submitted: true })
       setTimeout(() => {
         this.props.history.push("/");
-      }, 9000);
-    } else {
+      }, 8000);
+    } else if (event.target.publish) {
+
       this.setState({ clicked: true });
-      console.log(this.state.clicked)
     }
   }
 
@@ -46,13 +46,17 @@ class UploadPage extends Component {
         {!this.state.submitted &&
           <>
             <h1 className='upload-page__headline'>Upload Video</h1>
-            <form onSubmit={(event) => this.handleSubmit(event)}
+            <form
+              onSubmit={(event) => this.handleSubmit(event)}
               className="upload-page__form">
-              <label className='upload-page__label--image'>VIDEO THUMBNAIL
-                <img src={heroImage} alt='' className='upload-page__image' />
+              <label className='upload-page__label--image'>
+                VIDEO THUMBNAIL
+                <img
+                  src={heroImage}
+                  alt='upload page default hero banner photo'
+                  className='upload-page__image' />
               </label>
               <div className='upload-page__form-block'>
-
                 <label htmlFor='videoTitle'
                   className='upload-page__label'
                 >TITLE YOUR VIDEO
@@ -78,14 +82,19 @@ class UploadPage extends Component {
                 </label>
               </div>
 
-                <div className='upload-page__button-block'>
-                  <button className='upload-page__publish-button'>
-                    PUBLISH
-                  </button>
-                  <button className='upload-page__cancel-button'>
-                    CANCEL
-                  </button>
-                </div>
+              <div className='upload-page__button-block'>
+                <button
+                  name='publish'
+                  className='upload-page__publish-button'>
+                  PUBLISH
+                </button>
+                <button
+                  name='cancel'
+                  onClick={() => this.props.history.push("/")}
+                  className='upload-page__cancel-button'>
+                  CANCEL
+                </button>
+              </div>
             </form>
           </>
         }
@@ -93,11 +102,11 @@ class UploadPage extends Component {
         {
           this.state.submitted &&
           <div className='upload-page__submitted-block'>
-            <p className='upload-page__headline'>
+            <h3 className='upload-page__headline--submitted'>
               Thank you for Upload!
-            </p>
+            </h3>
             <p className='upload-page__label'>
-              You'll recieve a notification when you're video is available for viewing
+              You'll recieve a notification when you're video is available to be shared
             </p>
             <p className='upload-page__label'>
               Please wait as you are redirected to the home page

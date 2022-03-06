@@ -11,15 +11,18 @@
   flex-direction: column;
   padding-left: $mobile-component-padding;
   padding-right: $mobile-component-padding;
+  padding-bottom: $mobile-component-padding;
   
   @include tablet {
     padding-left: $tablet-component-padding;
     padding-right: $tablet-component-padding;
+    padding-bottom: $tablet-component-padding;
   }
-
+  
   @include desktop {
     padding-left: $desktop-upload-horizontal-padding;
     padding-right: $desktop-upload-horizontal-padding;
+    padding-bottom: $desktop-upload-horizontal-padding;
   }
 
   &__headline {
@@ -30,19 +33,30 @@
     margin-bottom: 0;
 
     @include desktop {
+      @include header-mobile-padding;
       @include divider-bottom;
-      padding-bottom: $tablet-component-padding;
+      margin-left: $mobile-component-padding;
+      margin-right: $mobile-component-padding;
+      padding-left: 0;
+      padding-right: 0;
 
+    }
+
+    &--submitted {
+      @extend .upload-page__headline;
+      border: none;
+      margin-top: 5rem;
     }
   }
 
   &__form {
-    width: 100%;
 
     @include desktop {
-      margin-top: $tablet-comment-vertical-padding;
+      padding-top: $tablet-comment-vertical-padding;
       display: flex;
       flex-wrap: wrap;
+      padding-left: $mobile-component-padding;
+      padding-right: $mobile-component-padding;
     }
   }
 
@@ -105,6 +119,7 @@
     box-sizing: border-box;
     width: 100%;
     margin-bottom: $mobile-component-padding;
+
     
     &--big {
       @extend .upload-page__input;
@@ -166,7 +181,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     text-align: center;
   }
 }
