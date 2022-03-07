@@ -1,0 +1,33 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
+.error-page {
+  box-sizing: border-box;
+  color: $primary-font-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: fit-content;
+  @include element-mobile-padding;
+  padding-left: $mobile-component-padding;
+  padding-right: $mobile-component-padding;
+  
+  &__headline {
+    padding-top: 3vw;
+    font-size: 7rem;
+    margin:0;
+  }
+  
+  &__subheader {
+    font-size: 3.5rem;
+    margin:0;
+    padding-bottom: 1rem;
+  }
+  
+  &__body {
+    font-size: 1.5rem;
+    margin:0;
+    text-align: center;
+  }
+}

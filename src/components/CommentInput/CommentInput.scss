@@ -46,10 +46,6 @@
     @include avatar;
     position: relative;
     top: 1.5rem;
-
-    &--disabled {
-      filter: grayscale(1);
-    }
   }
 
   &__right {
@@ -91,14 +87,6 @@
       margin-bottom: $form-label-space;
       color: $form-border-error-color;
     }
-    
-    &--disabled {
-      @extend .comment-input__label;
-      margin-top: $form-label-space;
-      margin-bottom: $form-label-space;
-      color: $white;
-
-    }
 
     @include tablet {
       box-sizing: border-box;
@@ -115,34 +103,22 @@
     width: 100%;
     overflow: hidden;
 
-     @include tablet {
+    @include tablet {
       height: 42px;
       margin-right: $tablet-comment-vertical-padding;
       margin-bottom: 0;
     }
+
     @include desktop {
       margin-right: $tablet-component-padding;
     }
 
-    &--active {
-      @extend .comment-input__field;
-      border-color: $form-border-active-color;
-
-    }
-
-    &--invalid {
+    &--error {
       @extend .comment-input__field;
       border-color: $form-border-error-color;
       
       &:focus {
         border-color: $form-border-error-color;
-      }
-    }
-
-    &--disabled {
-
-      &::placeholder {
-        color: $alabaster;
       }
     }
   }
@@ -156,15 +132,6 @@
       @include button;
       display: inline-block;
       padding: 0 $cta-tablet-horizontal-padding;
-    }
-
-    &--disabled {
-      filter: grayscale(1);
-
-      &:hover {
-        background-color: $cta-background-color;
-        cursor: initial;
-      }
     }
   }
   

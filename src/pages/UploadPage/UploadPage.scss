@@ -136,9 +136,13 @@
       }
     }
 
-    &--invalid {
+    &--error {
       @extend .upload-page__input;
       border-color: $form-border-error-color;
+      
+      &:focus {
+        border-color: $form-border-error-color;
+      }
     }
   }
 

@@ -65,7 +65,7 @@ class UploadPage extends Component {
                     value={this.state.videoTitle}
                     type='text'
                     placeholder='Add a title to your video'
-                    className={`upload-page__input ${this.state.clicked && this.state.videoTitle === "" ? "upload-page__input--invalid" : ""}`}
+                    className={`upload-page__input ${this.state.clicked && this.state.videoTitle === "" ? "upload-page__input--error" : ""}`}
                   />
                 </label>
                 <label htmlFor='videoDescription'
@@ -76,7 +76,7 @@ class UploadPage extends Component {
                     onChange={this.handleChange}
                     value={this.state.videoDescription}
                     placeholder="Add a description to your video"
-                    className={`upload-page__input--big ${this.state.clicked && this.state.videoDescription === "" ? "upload-page__input--invalid" : ""}`}
+                    className={`upload-page__input--big ${this.state.clicked && this.state.videoDescription === "" ? "upload-page__input--error" : ""}`}
                   />
                 </label>
               </div>
