@@ -12,7 +12,7 @@ class CommentInput extends Component {
   }
 
   handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value});   
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   // checks in the handleSubmit if the form is valid
@@ -40,8 +40,6 @@ class CommentInput extends Component {
         .then(() => {
           apiUtils.getVideoById(this.props.videoId)
             .then(result => this.props.updateActiveVideoObj(result.data))
-          console.log(event.target.commentValue.value)
-          // event.target.commentValue.value.reset();
           this.setState({ commentValue: "" })
         })
     } else {
@@ -54,8 +52,8 @@ class CommentInput extends Component {
 
   componentDidUpdate(prevProps) {
     console.log(this.props.videoId, prevProps.videoId);
-    if (this.props !== prevProps ) {
-      this.setState({ clicked: 0})
+    if (this.props !== prevProps) {
+      this.setState({ clicked: 0 })
     }
   }
 
@@ -86,17 +84,29 @@ class CommentInput extends Component {
                 htmlFor="userComment"
                 className="comment-input__label">
                 JOIN THE CONVERSATION
-                {this.state.clicked === 2 && <p className='comment-input__label--error'> Please Enter a Comment</p>}
-                {this.state.clicked === 3 && <p className='comment-input__label--error'> Bueller?</p>}
-                {this.state.clicked === 4 && <p className='comment-input__label--error'> Why are you the way that you are?</p>}
-                {this.state.clicked === 5 && <p className='comment-input__label--error'> Honestly...</p>}
-                {this.state.clicked === 6 && <p className='comment-input__label--error'> Every time I try to do something fun or exciting, you make it not that way</p>}
-                {this.state.clicked === 7 && <p className='comment-input__label--error'> I hate so much about the things that you choose to be</p>}
-                {this.state.clicked === 8 && <p className='comment-input__label--error'> You wanna hear a lie? I think you’re great. You’re my best friend</p>}
-                {this.state.clicked === 9 && <p className='comment-input__label--error'> Who let the lemon-head into the room? You are a waste of life, and you should give up</p>}
-                {this.state.clicked === 10 && <p className='comment-input__label--error'> If I had a gun, with two bullets, and I was in a room with Hitler, Bin Laden, and Toby, I would shoot Toby twice</p>}
-                {this.state.clicked === 11 && <><p className='comment-input__label--error'> No where in your incoherent response were you even close to anything that could be considered a rational thought. Our computers are now dumber for computing it</p> <p className='comment-input__label--error'> Posting comments is suspended and may god have mercy on your soul</p></>}
-                {this.state.clicked === 12 && <p className='comment-input__label--error'> !!! I swear, this is your LAST CHANCE !!!</p>}
+                {this.state.clicked === 2 && <p className='comment-input__label--error'
+                > Please Enter a Comment</p>}
+                {this.state.clicked === 3 && <p className='comment-input__label--error'
+                > Bueller?</p>}
+                {this.state.clicked === 4 && <p className='comment-input__label--error'
+                > Why are you the way that you are?</p>}
+                {this.state.clicked === 5 && <p className='comment-input__label--error'
+                > Honestly...</p>}
+                {this.state.clicked === 6 && <p className='comment-input__label--error'
+                > Every time I try to do something fun or exciting, you make it not that way</p>}
+                {this.state.clicked === 7 && <p className='comment-input__label--error'
+                > I hate so much about the things that you choose to be</p>}
+                {this.state.clicked === 8 && <p className='comment-input__label--error'
+                > You wanna hear a lie? I think you’re great. You’re my best friend</p>}
+                {this.state.clicked === 9 && <p className='comment-input__label--error'
+                > Who let the lemon-head into the room? You are a waste of life, and you should give up</p>}
+                {this.state.clicked === 10 && <p className='comment-input__label--error'
+                > If I had a gun, with two bullets, and I was in a room with Hitler, Bin Laden, and Toby, I would shoot Toby twice</p>}
+                {this.state.clicked === 11 && <>
+                  <p className='comment-input__label--error'> No where in your incoherent response were you even close to anything that could be considered a rational thought. Our computers are now dumber for attempting to process it</p>
+                  <p className='comment-input__label--error'> Posting comments is suspended and may god have mercy on your soul</p>
+                </>}
+                {this.state.clicked === 12 && <p className='comment-input__label--error'> ! !! !!! I swear on everything holy, this is your LAST CHANCE !!! !! !</p>}
               </label>
               <div className="comment-input__right-container">
                 <textarea

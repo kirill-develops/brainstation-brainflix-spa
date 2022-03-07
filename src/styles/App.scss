@@ -32,7 +32,6 @@ body {
   @include desktop {
     display: inline-block;
     box-sizing: border-box;
-    // width: 70%;
     flex: 1;
   }
 }

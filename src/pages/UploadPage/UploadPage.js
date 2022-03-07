@@ -23,7 +23,6 @@ class UploadPage extends Component {
     return true;
   }
 
-
   handleSubmit = (event) => {
     event.preventDefault();
 
@@ -81,7 +80,6 @@ class UploadPage extends Component {
                   />
                 </label>
               </div>
-
               <div className='upload-page__button-block'>
                 <button
                   name='publish'

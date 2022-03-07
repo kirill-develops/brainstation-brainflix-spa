@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   
   &__header {
-    @include font-subheader-mobile;
+    @include font-subheader;
     @include element-mobile-padding;
     padding-left: $mobile-component-padding;
     padding-right: $mobile-component-padding;
@@ -81,7 +81,7 @@
   }
 
   &__label {
-    @include font-label-button-mobile;
+    @include font-label-button;
     padding-bottom: $form-label-space;
     color: $secondary-font-color;
 
@@ -133,7 +133,10 @@
     &--invalid {
       @extend .comment-input__field;
       border-color: $form-border-error-color;
-
+      
+      &:focus {
+        border-color: $form-border-error-color;
+      }
     }
 
     &--disabled {
@@ -142,13 +145,11 @@
         color: $alabaster;
       }
     }
-
-   
   }
 
   &__button {
     @include button;
-    @include font-label-button-mobile;
+    @include font-label-button;
     background-image: url('../../assets/Icons/add_comment.svg');
 
     @include tablet {
@@ -165,12 +166,10 @@
         cursor: initial;
       }
     }
-
-    
   }
   
   &__button-text {
-    @include font-label-button-mobile;
+    @include font-label-button;
     @include button-text;
   }
 }

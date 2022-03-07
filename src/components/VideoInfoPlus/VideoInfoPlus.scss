@@ -4,18 +4,18 @@
 @use '../../styles/partials/color\s' as *;
 
 .video-info-plus {
-  @include element-mobile-padding;
-  @include divider-bottom ;
+  @include divider-bottom;
   list-style: none;
   margin: 0 $mobile-component-padding;
+  padding-top: calc($mobile-component-padding - 0.3rem);
   padding-bottom: calc($mobile-component-padding - 0.3rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: flex-start;
   
   @include tablet {
     @include block-tablet-margin;
-    @include divider-bottom;
     list-style: none;
     margin: 0 $tablet-component-padding;
     margin-bottom: 0;
@@ -28,25 +28,29 @@
   @include desktop {
     padding-right: $tablet-component-padding;
     margin: 0;
+    border-width: 2px;
   }
   
   &__label {
-    @include font-body-mobile;
+    @include font-video-plus;
+    display: block;
     color: $silver;
     box-sizing: border-box;
     width: 50%;
     margin: 0;
     padding: 0.3rem 0;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
 
     @include tablet {
-      display: flex;
       width: fit-content;
     }
     
     &--special {
       @extend .video-info-plus__label;
-      @include font-subheader-mobile;
+      @include font-subheader;
+      font-size: 0.8rem;
 
       @include tablet {
         order:1;
@@ -56,24 +60,24 @@
 
     &--date {
       @extend .video-info-plus__label;
-    
+      
       @include tablet {
         order: 2;
         flex: 1 1 0;
         padding-left: $tablet-component-padding;
       }
     }
-  
+    
     &--views {
       @extend .video-info-plus__label;
-    
+      
       @include tablet {
         order: 3;
         flex: 1 1 2;
         padding-right: $tablet-component-padding;
       }
     }
-  
+    
     &--likes {
       @extend .video-info-plus__label;
       
@@ -85,6 +89,8 @@
   }
 
   &__icon {
-   padding-right: 0.5rem; 
+    padding-right: 0.5rem; 
+    max-height: 22px;
+    object-position: bottom;
   }
 }

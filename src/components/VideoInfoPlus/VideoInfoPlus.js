@@ -12,10 +12,10 @@ const VideoInfoPlus = ({ timestamp, channel, views, likes }) => {
       <div className="video-info-plus">
         <h4 className="video-info-plus__label--special">By {channel}</h4>
 
-        <h4 className="video-info-plus__label--views">
-          <img className="video-info-plus__icon" alt="views icon" src={viewLogo}>
-          </img>{views}
-        </h4>
+        <li className="video-info-plus__label--views">
+          <img className="video-info-plus__icon" alt="views icon" src={viewLogo} />
+          {views}
+        </li>
 
         <h4 className="video-info-plus__label--date">{relDate}</h4>
 

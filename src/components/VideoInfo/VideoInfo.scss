@@ -6,7 +6,7 @@
 .video-info {
   
   &__title {
-    @include font-page-header-mobile;
+    @include font-page-header;
     @include element-mobile-padding;
     @include divider-bottom ;
     padding-left: 0;
@@ -27,7 +27,7 @@
   
   &__content {
     @include element-mobile-padding;
-    @include font-body-mobile;
+    @include font-body;
     padding-left: $mobile-component-padding;
     padding-right: $mobile-component-padding;
     margin: 0;

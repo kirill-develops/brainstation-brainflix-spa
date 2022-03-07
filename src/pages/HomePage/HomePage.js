@@ -23,8 +23,8 @@ class HomePage extends Component {
         apiUtils.getVideoById(plantId)
           .then(response => {
             this.setState({ activeVideoObj: response.data })
-              .catch(error => { return errorMessage })
-          }).catch(error => { return errorMessage })
+              .catch(() => { return errorMessage })
+          }).catch(() => { return errorMessage })
       })
   }
 
@@ -69,11 +69,8 @@ class HomePage extends Component {
     return (
       <div className='App'>
         <VideoBlock poster={image} video={video} id={id} />
-
         <div className='main--desktop'>
-
           <div className="main__left--desktop">
-
             <VideoInfo
               videoObj={activeVideoObj}
             />
@@ -88,7 +85,6 @@ class HomePage extends Component {
               updateActiveVideoObj={this.updateActiveVideoObj}
             />
           </div>
-
           <NextVideo
             vidArr={filteredVideos}
           />

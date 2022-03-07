@@ -83,7 +83,7 @@
 
   &__button {
     @include button;
-    @include font-label-button-mobile;
+    @include font-label-button;
     background-image: url('../../assets/Icons/upload.svg');
     display: flex;
     flex: 1 1 2;
@@ -92,7 +92,7 @@
     
       @include tablet {
         @include button;
-        @include font-label-button-mobile;
+        @include font-label-button;
         background-image: url('../../assets/Icons/upload.svg');
         padding: 0 $cta-tablet-horizontal-padding;
         order: 2;
@@ -100,7 +100,7 @@
   }
 
   &__button-text {
-    @include font-label-button-mobile;
+    @include font-label-button;
     @include button-text;
   }
 }

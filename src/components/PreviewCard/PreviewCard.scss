@@ -21,7 +21,6 @@
     border-radius: 0.25rem;
     width: 6.5rem;
     aspect-ratio: 17/10;
-    // height: 66px;
     object-fit: cover;
   };
   
@@ -30,7 +29,6 @@
     padding-right: $mobile-component-padding;
     display: flex;
     align-items: center;
-
   }
   
   &__right {
@@ -42,21 +40,16 @@
   };
   
   &__title {
-    @include font-section-header-mobile;
+    @include font-section-header;
     margin-top: 0;
     margin-bottom: 0;
     width: fit-content;
-    
-    @include tablet {
-
-
-    }
   };
   
   &__author {
     margin-top: 0;
     margin-bottom: 0;
-    @include font-body-mobile;
+    @include font-body;
   };
 
   &:hover {
@@ -71,8 +64,8 @@
 
     .preview-card__title {
       color: $brainFlix-darkBlue !important;
-      
     }
+    
     .preview-card__author {
       color: $brainFlix-darkBlue !important;
     }

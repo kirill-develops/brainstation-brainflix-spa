@@ -17,6 +17,7 @@
     padding-left: $tablet-component-padding;
     padding-right: $tablet-component-padding;
     padding-bottom: $tablet-component-padding;
+    border-width: 2px;
   }
   
   @include desktop {
@@ -26,16 +27,23 @@
   }
 
   &__headline {
-    @include font-page-header-mobile;
+    @include font-page-header;
     @include header-mobile-padding;
     margin-top: 0;
     margin-bottom: 0;
     padding-left: 0;
     padding-right: 0;
+    
+    @include tablet {
+      @include divider-bottom;
+      @include header-tablet-padding;
+      padding-left: 0;
+      padding-right: 0;
+      border-width: 2px;
+    }
 
     @include desktop {
       @include header-mobile-padding;
-      @include divider-bottom;
     }
 
     &--submitted {
@@ -47,8 +55,12 @@
 
   &__form {
 
-    @include desktop {
+    @include tablet {
       padding-top: $tablet-comment-vertical-padding;
+
+    }
+
+    @include desktop {
       display: flex;
       flex-wrap: wrap;
     }
@@ -61,7 +73,6 @@
       flex-direction: column;
       flex: 1;
       height: 100%;
-      
     }
   }
 
@@ -83,7 +94,7 @@
 
   &__label {
     display: block;
-    @include font-label-button-mobile;
+    @include font-label-button;
     color: $secondary-font-color;
     
     @include desktop {
@@ -148,7 +159,7 @@
 
   &__publish-button {
     @include button;
-    @include font-label-button-mobile;
+    @include font-label-button;
     @include button-text;
     display: block;
     margin-bottom: $mobile-component-padding;
@@ -166,7 +177,7 @@
 
   &__cancel-button {
     @include button-alt;
-    @include font-label-button-mobile;
+    @include font-label-button;
     margin-bottom: $mobile-component-padding;
 
     @include tablet {
