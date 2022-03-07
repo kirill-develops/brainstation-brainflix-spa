@@ -38,7 +38,6 @@
     flex-wrap: wrap;
     
     @include tablet {
-      width: 80%;
       display: flex;
       justify-content: flex-end;
     }
@@ -55,31 +54,32 @@
    
     @include tablet {
       @include block-tablet-margin;
-      width: $form-min-width;
+      max-width: $form-min-width;
+      margin: 0 $tablet-comment-vertical-padding 0 0;
+    }
+    
+    @include desktop {
       margin: 0 $tablet-component-padding;
     }
   }
 
-
   &__avatar {
     @include avatar;
     vertical-align: middle;
-    // margin: 0 0 0 $mobile-component-padding;
-    
-    @include tablet {
-      order:3;
-      // margin: 0 0 0 $tablet-component-padding;
-    }
   }
+
   &__avatar-housing {
     padding: 0 0 0 $mobile-component-padding;
     
     @include tablet {
       order:3;
+    }
+    
+    @include desktop {
       padding: 0 0 0 $tablet-component-padding;
+
     }
   }
-
 
   &__button {
     @include button;

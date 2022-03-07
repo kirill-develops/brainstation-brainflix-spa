@@ -7,7 +7,7 @@
   
   &__title {
     @include font-page-header-mobile;
-    @include header-mobile-padding;
+    @include element-mobile-padding;
     @include divider-bottom ;
     padding-left: 0;
     padding-right: 0;
@@ -26,8 +26,10 @@
   }
   
   &__content {
-    @include header-mobile-padding;
+    @include element-mobile-padding;
     @include font-body-mobile;
+    padding-left: $mobile-component-padding;
+    padding-right: $mobile-component-padding;
     margin: 0;
     padding-bottom: 0;
     

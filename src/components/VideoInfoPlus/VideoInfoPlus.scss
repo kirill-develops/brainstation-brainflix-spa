@@ -8,7 +8,7 @@
   @include divider-bottom ;
   list-style: none;
   margin: 0 $mobile-component-padding;
-  padding-bottom: $mobile-component-padding;
+  padding-bottom: calc($mobile-component-padding - 0.3rem);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;

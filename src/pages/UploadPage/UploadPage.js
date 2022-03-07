@@ -53,7 +53,7 @@ class UploadPage extends Component {
                 VIDEO THUMBNAIL
                 <img
                   src={heroImage}
-                  alt='upload page default hero banner photo'
+                  alt='upload page default hero banner'
                   className='upload-page__image' />
               </label>
               <div className='upload-page__form-block'>

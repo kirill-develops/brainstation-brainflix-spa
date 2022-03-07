@@ -6,7 +6,7 @@
 .comment {
   @include divider-top ;
   display: flex;
-  padding: $mobile-component-padding 0 calc($mobile-component-padding - 3%);
+  padding: $mobile-component-padding 0 ;
 
   @include tablet {
     padding: $tablet-comment-vertical-padding 0 $mobile-component-padding;
@@ -62,6 +62,9 @@
     align-items: baseline;
     flex-wrap: wrap;
 
+    @include tablet {
+      padding-left: $tablet-comment-vertical-padding;
+    }
     @include desktop {
       padding-left: $tablet-component-padding;
     }

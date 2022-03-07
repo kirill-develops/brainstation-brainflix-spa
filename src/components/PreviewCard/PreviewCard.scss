@@ -21,7 +21,7 @@
     border-radius: 0.25rem;
     width: 6.5rem;
     aspect-ratio: 17/10;
-    height: 66px;
+    // height: 66px;
     object-fit: cover;
   };
   
@@ -35,11 +35,10 @@
   
   &__right {
     box-sizing: border-box;
-    padding: 4px 0 4px 0;
-    
-    // @include tablet{
-    //   padding: 4px 8px 4px 0;
-    // }
+    height: 3.823rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   };
   
   &__title {
@@ -47,6 +46,11 @@
     margin-top: 0;
     margin-bottom: 0;
     width: fit-content;
+    
+    @include tablet {
+
+
+    }
   };
   
   &__author {

@@ -47,10 +47,11 @@
   line-height: 1.25rem; //20px
   font-weight: 700;
   color: $primary-font-color;
-
+  
   @include tablet {
-    font-size: 0.75rem; //12px
+    font-size: 0.85rem; //16px
     line-height: 1.25rem; //20px
+    // font-weight: 400;
   }
 }
 @mixin font-subheader-mobile {
@@ -97,11 +98,12 @@
     height: $avatar-tablet-height
   }
 };
+
 @mixin button {
   box-sizing: border-box;
   background-repeat: no-repeat;
-  background-position: 12px center;
-  background-size: 1.15rem;
+  background-position: 8px center;
+  background-size: 1.25rem;
   text-align: center;
   border: none;
   height: $cta-height;
@@ -149,7 +151,7 @@
   }
 
   &:focus {
-    border: 1.5px solid $brainFlix-blue;
+    border-color: $brainFlix-blue;
   }
 }
 @mixin divider-bottom  {

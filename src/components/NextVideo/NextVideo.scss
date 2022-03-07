@@ -22,11 +22,12 @@
     border-left: 1px solid $divider-color;
     padding-left: $tablet-comment-vertical-padding;
     padding-right: 0;
+    padding-bottom: 3.5rem;
     flex: 0.42;
   }
 
   &__header {
-    @include font-section-header-mobile;
+    @include font-label-button-mobile;
     padding-top: $mobile-post-heading-padding;
     padding-bottom: calc($mobile-post-heading-padding / 2);
     margin: 0;

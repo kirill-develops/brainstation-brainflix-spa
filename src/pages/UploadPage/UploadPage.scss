@@ -30,13 +30,12 @@
     @include header-mobile-padding;
     margin-top: 0;
     margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
 
     @include desktop {
       @include header-mobile-padding;
       @include divider-bottom;
-      padding-left: 0;
-      padding-right: 0;
-
     }
 
     &--submitted {
@@ -157,6 +156,10 @@
 
     @include tablet {
       order: 2;
+      margin-left: $tablet-comment-vertical-padding;
+    }
+    
+    @include desktop {
       margin-left: $tablet-component-padding;
     }
   }
