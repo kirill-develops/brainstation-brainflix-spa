@@ -9,16 +9,37 @@ class UploadPage extends Component {
   state = {
     videoTitle: "",
     videoDescription: "",
+    videoFile: null,
     clicked: false,
-    submitted: false
+    submitted: false,
+    vidInputCaption: 'VIDEO THUMBNAIL'
   }
 
-  handleChange = (event => {
-    this.setState({ [event.target.name]: event.target.value });
+  // updates state of form fields as user types
+  handleChange = (e => {
+    this.setState({ [e.target.name]: e.target.value });
   })
 
-  isValueValid = () => {
+  // upon file submission, saves an objURL of the image
+  handleFile = (e => {
+    let reader = new FileReader();
 
+    reader.onload = (e) => {
+      this.setState({ videoFile: e.target.result });
+      console.log(JSON.stringify(this.state.videoFile));
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  })
+
+  handleHoverOver = () => {
+    this.setState({ vidInputCaption: 'VIDEO THUMBNAIL CLICK TO UPLOAD' })
+  }
+  handleHoverOut = () => {
+    this.setState({ vidInputCaption: 'VIDEO THUMBNAIL' })
+  }
+
+  // checks to ensure neither form is empty
+  isValueValid = () => {
     const title = this.state.videoTitle;
     const description = this.state.videoDescription;
 
@@ -28,16 +49,19 @@ class UploadPage extends Component {
     return true;
   }
 
-  handleSubmit = (event) => {
-    event.preventDefault();
+  // handles form submission
+  handleSubmit = (e) => {
+    e.preventDefault();
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >;
 
-    const { videoTitle, videoDescription } = event.target;
+    const { videoTitle, videoDescription } = e.target;
     const { value: title } = videoTitle;
     const { value: description } = videoDescription;
 
     if (this.isValueValid()) {
-      apiUtils.postVideo(title, description, Poster)
+      const file = this.state.videoFile || Poster;
+      console.log(file);
+      apiUtils.postVideo(title, description, file)
         .then((res) => {
           const { id } = res.data;
           this.setState({ submitted: true })
@@ -50,7 +74,7 @@ class UploadPage extends Component {
           console.log(err);
           return errorMessage;
         })
-    } else if (event.target.publish) {
+    } else if (e.target.publish) {
 
       this.setState({ clicked: true });
     }
@@ -60,18 +84,28 @@ class UploadPage extends Component {
 
     return (
       <div className='upload-page'>
-        {!this.state.submitted &&
+        {// the form is displayed until 
+          !this.state.submitted &&
           <>
             <h1 className='upload-page__headline'>Upload Video</h1>
             <form
-              onSubmit={(event) => this.handleSubmit(event)}
+              onSubmit={(e) => this.handleSubmit(e)}
               className="upload-page__form">
-              <label className='upload-page__label--image'>
-                VIDEO THUMBNAIL
+              <label
+                className='upload-page__label--image'
+                onMouseOver={this.handleHoverOver}
+                onMouseOut={this.handleHoverOut}
+              >{this.state.vidInputCaption}
                 <img
-                  src={heroImage}
+                  src={this.state.videoFile || heroImage}
                   alt='upload page default hero banner'
-                  className='upload-page__image' />
+                  className='upload-page__image'
+                />
+                <input
+                  type='file'
+                  onChange={this.handleFile}
+                  className='upload-page__file-button'
+                />
               </label>
               <div className='upload-page__form-block'>
                 <label htmlFor='videoTitle'
@@ -115,7 +149,7 @@ class UploadPage extends Component {
           </>
         }
 
-        {
+        {// upon form submission, this is displayed before taking user to newly created page for uploaded video
           this.state.submitted &&
           <div className='upload-page__submitted-block'>
             <h3 className='upload-page__headline--submitted'>

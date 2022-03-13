@@ -24,7 +24,7 @@ class NextVideo extends Component {
               author={video.channel}
             />
           </Link>
-        )};
+        )}
       </div>
     )
   };
