@@ -18,8 +18,10 @@ class UploadPage extends Component {
   })
 
   isValueValid = () => {
-    const title = this.state.videoTitle
-    const description = this.state.videoDescription
+
+    const title = this.state.videoTitle;
+    const description = this.state.videoDescription;
+
     if (!title || !description) {
       return false;
     }
@@ -28,6 +30,7 @@ class UploadPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+
     const { videoTitle, videoDescription } = event.target;
     const { value: title } = videoTitle;
     const { value: description } = videoDescription;
@@ -35,13 +38,12 @@ class UploadPage extends Component {
     if (this.isValueValid()) {
       apiUtils.postVideo(title, description, Poster)
         .then((res) => {
-          console.log(res.data.id)
           const { id } = res.data;
           this.setState({ submitted: true })
           setTimeout(() => {
             this.props.history.push(`video/${id
               }`);
-          }, 8000);
+          }, 2000);
         })
         .catch(err => {
           console.log(err);

@@ -37,19 +37,13 @@ class CommentInput extends Component {
 
     if (this.isFormValid()) {
       apiUtils.postVideoComment(this.props.videoId, this.state.nameValue, this.state.commentValue)
-        .then(() => {
-          apiUtils.getVideoById(this.props.videoId)
-            .then(result => this.props.updateActiveVideoObj(result.data))
-            .catch(err => {
-              console.log(err);
-              <h2>Please Refresh the screen</h2>
-            })
-          this.setState({ commentValue: "" })
-        })
+        .then((res) => this.props.updateActiveVideoObj(res.data))
         .catch(err => {
           console.log(err);
-          <h2>Please Refresh the screen</h2>
-        })
+          <h2>Please Refresh the screen</h2>;
+        });
+      this.setState({ commentValue: "" });
+
     } else {
       //set focus to comment field
       event.target.commentValue.focus()

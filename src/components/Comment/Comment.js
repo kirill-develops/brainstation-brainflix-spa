@@ -10,22 +10,14 @@ class Comment extends Component {
     relDate: LastSeen(this.props.timestamp)
   }
 
-
   handleClick = () => {
-    const { videoId, commentId, updateActiveVideoObj } = this.props
+    const { videoId, commentId, updateActiveVideoObj } = this.props;
     apiUtils.deleteVideoComment(videoId, commentId)
-      .then(() => {
-        apiUtils.getVideoById(videoId)
-          .then(result => updateActiveVideoObj(result.data))
-          .catch(err => {
-            console.log(err);
-            <h2>Please Refresh the screen</h2>
-          });
-      })
+      .then(res => updateActiveVideoObj(res.data))
       .catch(err => {
         console.log(err);
         <h2>Please Refresh the screen</h2>
-      })
+      });
   }
 
   render() {

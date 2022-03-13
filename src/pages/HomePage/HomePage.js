@@ -21,21 +21,22 @@ class HomePage extends Component {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
     apiUtils.getAll()
-      .then(response => {
+      .then(res => {
 
         // create Arr with [0]=vidId & [1]=<isLiked t/f>
-        const likedVids = response.data.map(vid => { return { 'id': vid.id, 'liked': false } })
-        this.setState({ videoArray: response.data, likedVids: likedVids });
+        const likedVids = res.data.map(vid => { return { 'id': vid.id, 'liked': false } })
+        this.setState({ videoArray: res.data, likedVids: likedVids });
         const videoId = this.props.match.params.videoID || this.state.videoArray[0].id;
+        const { videoID } = this.props.match.params;
 
-        if (this.props.match.params.videoID && !this.state.videoArray.find(vid => vid.id === this.props.match.params.videoID)) {
+        if (videoID && !this.state.videoArray.find(vid => vid.id === videoID)) {
           this.setState({ error: true });
           return;
         }
 
         apiUtils.getVideoById(videoId)
-          .then(response => {
-            this.setState({ activeVideoObj: response.data })
+          .then(res => {
+            this.setState({ activeVideoObj: res.data })
               .catch(() => { return errorMessage })
           }).catch(() => { return errorMessage })
       })
@@ -44,13 +45,13 @@ class HomePage extends Component {
   componentDidUpdate(prevProps) {
     const { videoID: currentID } = this.props.match.params
     const { videoID: prevID } = prevProps.match.params
-
     // if ID's don't match, updates state of activeVideObj, if no ID but previously had a value, go to first video
     if (!currentID && prevID) {
       apiUtils.getVideoById(this.state.videoArray[0].id)
         .then(response => {
           this.setState({
             activeVideoObj: response.data,
+            error: false
           })
         })
         .catch(err => {
