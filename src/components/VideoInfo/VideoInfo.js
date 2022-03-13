@@ -1,7 +1,7 @@
 import VideoInfoPlus from '../VideoInfoPlus/VideoInfoPlus'
 import './VideoInfo.scss';
 
-const VideoInfo = ({ videoObj, updateActiveVideoObj }) => {
+const VideoInfo = ({ videoObj, updateLike, liked }) => {
 
   const { id, title, timestamp, channel, views, likes, description } = videoObj
   return (
@@ -14,7 +14,8 @@ const VideoInfo = ({ videoObj, updateActiveVideoObj }) => {
         channel={channel}
         views={views}
         likes={likes}
-        updateActiveVideoObj={updateActiveVideoObj}
+        updateLike={updateLike}
+        liked={liked}
       />
 
       <p className="video-info__content">{description}</p>

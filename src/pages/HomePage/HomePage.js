@@ -13,22 +13,25 @@ class HomePage extends Component {
   state = {
     videoArray: [],
     activeVideoObj: null,
-    error: false
+    error: false,
+    likedVids: []
   }
 
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
 
-    if (this.props.match.params.videoID && !this.state.videoArray.find(vid => vid.id === this.props.match.params.videoID)) {
-      this.setState({ error: true });
-      return;
-    }
-
     apiUtils.getAll()
       .then(response => {
-        this.setState({ videoArray: response.data });
-        console.log(response.data)
+
+        // create Arr with [0]=vidId & [1]=<isLiked t/f>
+        const likedVids = response.data.map(vid => { return { 'id': vid.id, 'liked': false } })
+        this.setState({ videoArray: response.data, likedVids: likedVids });
         const videoId = this.props.match.params.videoID || this.state.videoArray[0].id;
+
+        if (this.props.match.params.videoID && !this.state.videoArray.find(vid => vid.id === this.props.match.params.videoID)) {
+          this.setState({ error: true });
+          return;
+        }
 
         apiUtils.getVideoById(videoId)
           .then(response => {
@@ -74,6 +77,21 @@ class HomePage extends Component {
     })
   }
 
+  updateLike = (videoId) => {
+
+    const { id, liked } = this.state.likedVids.find(vid => vid.id === videoId);
+    const likedIndex = this.state.likedVids.findIndex(vid => vid.id === videoId);
+
+    apiUtils.likeVideo(id, liked)
+      .then(res => {
+
+        const updateLikes = this.state.likedVids;
+        updateLikes[likedIndex].liked = res.data[0];
+
+        this.updateActiveVideoObj(res.data[1])
+      })
+  }
+
   render() {
 
     if (!this.state.activeVideoObj && !this.state.error) {
@@ -86,6 +104,7 @@ class HomePage extends Component {
     const { image, comments, video, id } = this.state.activeVideoObj
     const { activeVideoObj } = this.state
     const filteredVideos = this.state.videoArray.filter((video) => video.id !== id);
+    const liked = this.state.likedVids.find(vid => vid.id === id).liked;
     return (
       <div className='App'>
         <VideoBlock poster={image} video={video} id={id} />
@@ -93,7 +112,8 @@ class HomePage extends Component {
           <div className="main__left--desktop">
             <VideoInfo
               videoObj={activeVideoObj}
-              updateActiveVideoObj={this.updateActiveVideoObj}
+              updateLike={this.updateLike}
+              liked={liked}
             />
             <CommentInput
               commentSum={comments.length}
