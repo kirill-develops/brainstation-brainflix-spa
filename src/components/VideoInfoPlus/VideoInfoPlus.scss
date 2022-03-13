@@ -1,7 +1,7 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/breakpoints' as *;
-@use '../../styles/partials/color\s' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/breakpoints'as *;
+@use '../../styles/partials/color\s'as *;
 
 .video-info-plus {
   @include divider-bottom;
@@ -13,7 +13,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
-  
+
   @include tablet {
     @include block-tablet-margin;
     list-style: none;
@@ -24,13 +24,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  
+
   @include desktop {
     padding-right: $tablet-component-padding;
     margin: 0;
     border-width: 2px;
   }
-  
+
   &__label {
     @include font-video-plus;
     display: block;
@@ -46,50 +46,55 @@
     @include tablet {
       width: fit-content;
     }
-    
+
     &--special {
       @extend .video-info-plus__label;
       @include font-subheader;
       font-size: 0.8rem;
 
       @include tablet {
-        order:1;
+        order: 1;
         flex: 1 1 1;
       }
     }
 
     &--date {
       @extend .video-info-plus__label;
-      
+
       @include tablet {
         order: 2;
         flex: 1 1 0;
         padding-left: $tablet-component-padding;
       }
     }
-    
+
     &--views {
       @extend .video-info-plus__label;
-      
+
       @include tablet {
         order: 3;
         flex: 1 1 2;
         padding-right: $tablet-component-padding;
       }
     }
-    
+
     &--likes {
       @extend .video-info-plus__label;
-      
+
+
       @include tablet {
         order: 4;
         flex: 1 2 2;
+      }
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
 
   &__icon {
-    padding-right: 0.5rem; 
+    padding-right: 0.5rem;
     max-height: 22px;
     object-position: bottom;
   }

@@ -6,21 +6,31 @@ import VideoInfo from '../../components/VideoInfo/VideoInfo';
 import CommentInput from '../../components/CommentInput/CommentInput';
 import CommentList from '../../components/CommentList/CommentList';
 import NextVideo from '../../components/NextVideo/NextVideo';
+import ErrorPage from '../ErrorPage/ErrorPage'
 
 class HomePage extends Component {
+
   state = {
     videoArray: [],
-    activeVideoObj: null
+    activeVideoObj: null,
+    error: false
   }
 
   componentDidMount() {
     const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >
+
+    if (this.props.match.params.videoID && !this.state.videoArray.find(vid => vid.id === this.props.match.params.videoID)) {
+      this.setState({ error: true });
+      return;
+    }
+
     apiUtils.getAll()
       .then(response => {
-        this.setState({ videoArray: response.data })
-        const plantId = this.props.match.params.videoID || this.state.videoArray[0].id
-        
-        apiUtils.getVideoById(plantId)
+        this.setState({ videoArray: response.data });
+        console.log(response.data)
+        const videoId = this.props.match.params.videoID || this.state.videoArray[0].id;
+
+        apiUtils.getVideoById(videoId)
           .then(response => {
             this.setState({ activeVideoObj: response.data })
               .catch(() => { return errorMessage })
@@ -40,12 +50,20 @@ class HomePage extends Component {
             activeVideoObj: response.data,
           })
         })
+        .catch(err => {
+          console.log(err);
+          <h2>Please Refresh the screen</h2>
+        })
     } else if (prevID !== currentID) {
       apiUtils.getVideoById(currentID)
         .then(response => {
           this.setState({
             activeVideoObj: response.data,
           })
+        })
+        .catch(err => {
+          console.log(err);
+          < h2 > Please Refresh the screen</h2 >
         })
     }
   }
@@ -58,14 +76,16 @@ class HomePage extends Component {
 
   render() {
 
-    if (!this.state.activeVideoObj) {
+    if (!this.state.activeVideoObj && !this.state.error) {
       return <p>Loading...</p>
+    }
+    else if (this.state.error) {
+      return <ErrorPage />
     }
 
     const { image, comments, video, id } = this.state.activeVideoObj
     const { activeVideoObj } = this.state
     const filteredVideos = this.state.videoArray.filter((video) => video.id !== id);
-
     return (
       <div className='App'>
         <VideoBlock poster={image} video={video} id={id} />
@@ -73,12 +93,13 @@ class HomePage extends Component {
           <div className="main__left--desktop">
             <VideoInfo
               videoObj={activeVideoObj}
+              updateActiveVideoObj={this.updateActiveVideoObj}
             />
             <CommentInput
               commentSum={comments.length}
               videoId={id}
               updateActiveVideoObj={this.updateActiveVideoObj}
-              />
+            />
             <CommentList
               commentsArr={comments}
               videoId={id}

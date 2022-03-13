@@ -12,8 +12,11 @@ class NextVideo extends Component {
       <div className='next-video'>
         <h2 className='next-video__header'>NEXT VIDEOS</h2>
         {vidArr.map(video =>
-          <Link to={`/video/${video.id}`} className='preview-card' key={video.id}>
-            < PreviewCard
+          <Link
+            key={video.id}
+            to={`/video/${video.id}`} className='preview-card'
+          >
+            <PreviewCard
               id={video.id}
               title={video.title}
               image={video.image}

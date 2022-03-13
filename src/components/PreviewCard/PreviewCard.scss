@@ -1,7 +1,7 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/breakpoints' as *;
-@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/breakpoints'as *;
+@use '../../styles/partials/colors'as *;
 
 .preview-card {
   box-sizing: border-box;
@@ -15,49 +15,49 @@
 
   @include tablet {
     margin-bottom: calc($tablet-comment-vertical-padding / 3 - 0.37px);
-  };
-  
+  }
+
   &__media {
     border-radius: 0.25rem;
     width: 6.5rem;
     aspect-ratio: 17/10;
     object-fit: cover;
-  };
-  
+  }
+
   &__media-housing {
     padding-left: 8px;
     padding-right: $mobile-component-padding;
     display: flex;
     align-items: center;
   }
-  
+
   &__right {
     box-sizing: border-box;
     height: 3.823rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-  };
-  
+  }
+
   &__title {
     @include font-section-header;
     margin-top: 0;
     margin-bottom: 0;
     width: fit-content;
-  };
-  
+  }
+
   &__author {
     margin-top: 0;
     margin-bottom: 0;
     @include font-body;
-  };
+  }
 
   &:hover {
     cursor: pointer;
     border: 1px solid $mercury;
     border-radius: $cta-border-radius;
     background-color: $alabaster;
-    
+
     .preview-card__media {
       filter: grayscale(1);
     }
@@ -65,9 +65,9 @@
     .preview-card__title {
       color: $brainFlix-darkBlue !important;
     }
-    
+
     .preview-card__author {
       color: $brainFlix-darkBlue !important;
     }
   }
-};
+}

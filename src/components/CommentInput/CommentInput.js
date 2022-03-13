@@ -40,7 +40,15 @@ class CommentInput extends Component {
         .then(() => {
           apiUtils.getVideoById(this.props.videoId)
             .then(result => this.props.updateActiveVideoObj(result.data))
+            .catch(err => {
+              console.log(err);
+              <h2>Please Refresh the screen</h2>
+            })
           this.setState({ commentValue: "" })
+        })
+        .catch(err => {
+          console.log(err);
+          <h2>Please Refresh the screen</h2>
         })
     } else {
       //set focus to comment field
@@ -51,7 +59,6 @@ class CommentInput extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(this.props.videoId, prevProps.videoId);
     if (this.props !== prevProps) {
       this.setState({ clicked: 0 })
     }
@@ -82,7 +89,7 @@ class CommentInput extends Component {
               className="comment-input__label">
               JOIN THE CONVERSATION
               {this.state.clicked >= 2 && <p className='comment-input__label--error'
-              >Please enter a comment</p>}
+              >   Please enter a comment</p>}
             </label>
             <div className="comment-input__right-container">
               <textarea

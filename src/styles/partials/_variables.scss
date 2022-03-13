@@ -1,9 +1,9 @@
-@use "./_colors" as *;
-@use "./typography" as *;
+@use "./_colors"as *;
+@use "./typography"as *;
 
 //mobile dimensions, margins & padding
 $mobile-component-padding: 1rem; //16px
-$mobile-pre-heading-padding: 1.5rem;  //24px
+$mobile-pre-heading-padding: 1.5rem; //24px
 $mobile-post-heading-padding: 1rem; //16px
 $media-mobile-max-height: 11.25rem;
 //tablet dimensions, margins & padding
@@ -18,7 +18,9 @@ $desktop-upload-horizontal-padding: 8rem;
 $media-desktop-max-height: 29.922rem;
 
 //font
-$root-font-stack: "AvenirNext", "Montserrat", sans-serif;
+$root-font-stack: "AvenirNext",
+"Montserrat",
+sans-serif;
 $root-font-size: 100%;
 
 //colors, global

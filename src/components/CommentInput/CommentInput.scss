@@ -1,12 +1,12 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/colors'as *;
+@use '../../styles/partials/breakpoints'as *;
 
 .comment-input {
   display: flex;
   flex-wrap: wrap;
-  
+
   &__header {
     @include font-subheader;
     @include element-mobile-padding;
@@ -14,7 +14,7 @@
     padding-right: $mobile-component-padding;
     width: 100%;
     margin: 0;
-    
+
     @include tablet {
       @include header-tablet-padding;
       margin: 0;
@@ -31,7 +31,7 @@
     box-sizing: border-box;
     width: 100%;
     display: flex;
-    
+
     @include tablet {
       padding-bottom: $tablet-component-padding;
       margin: 0 $tablet-component-padding;
@@ -54,7 +54,7 @@
     padding-left: $mobile-component-padding;
     display: flex;
     flex-direction: column;
-    
+
     @include tablet {
       flex-direction: row;
       flex-wrap: wrap;
@@ -116,7 +116,7 @@
     &--error {
       @extend .comment-input__field;
       border-color: $form-border-error-color;
-      
+
       &:focus {
         border-color: $form-border-error-color;
       }
@@ -134,7 +134,7 @@
       padding: 0 $cta-tablet-horizontal-padding;
     }
   }
-  
+
   &__button-text {
     @include font-label-button;
     @include button-text;

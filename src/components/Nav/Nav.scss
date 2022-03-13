@@ -1,6 +1,6 @@
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/breakpoints'as *;
 
 .nav {
   @include block-mobile-margin;
@@ -19,7 +19,7 @@
   @include desktop {
     padding: 0 $desktop-main-horizontal-padding;
   }
-  
+
   &__logo {
     max-height: $logo-max-height;
     max-width: $logo-max-width;
@@ -27,8 +27,8 @@
     @include tablet {
       vertical-align: middle;
     }
-  };
-  
+  }
+
   &__form {
     box-sizing: border-box;
     width: 100%;
@@ -36,7 +36,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    
+
     @include tablet {
       display: flex;
       justify-content: flex-end;
@@ -44,20 +44,20 @@
   }
 
   &__search {
-    background:  url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
+    background: url('../../assets/Icons/search.svg') no-repeat $form-mobile-padding center;
     @include block-mobile-margin;
     @include form;
     font-size: 0.75rem;
     box-sizing: border-box;
     flex: 1;
     padding-left: 36px;
-   
+
     @include tablet {
       @include block-tablet-margin;
       max-width: $form-min-width;
       margin: 0 $tablet-comment-vertical-padding 0 0;
     }
-    
+
     @include desktop {
       margin: 0 $tablet-component-padding;
     }
@@ -70,11 +70,11 @@
 
   &__avatar-housing {
     padding: 0 0 0 $mobile-component-padding;
-    
+
     @include tablet {
-      order:3;
+      order: 3;
     }
-    
+
     @include desktop {
       padding: 0 0 0 $tablet-component-padding;
 
@@ -89,14 +89,14 @@
     flex: 1 1 2;
     justify-content: center;
     align-items: center;
-    
-      @include tablet {
-        @include button;
-        @include font-label-button;
-        background-image: url('../../assets/Icons/upload.svg');
-        padding: 0 $cta-tablet-horizontal-padding;
-        order: 2;
-      }
+
+    @include tablet {
+      @include button;
+      @include font-label-button;
+      background-image: url('../../assets/Icons/upload.svg');
+      padding: 0 $cta-tablet-horizontal-padding;
+      order: 2;
+    }
   }
 
   &__button-text {

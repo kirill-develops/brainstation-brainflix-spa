@@ -17,6 +17,14 @@ class Comment extends Component {
       .then(() => {
         apiUtils.getVideoById(videoId)
           .then(result => updateActiveVideoObj(result.data))
+          .catch(err => {
+            console.log(err);
+            <h2>Please Refresh the screen</h2>
+          });
+      })
+      .catch(err => {
+        console.log(err);
+        <h2>Please Refresh the screen</h2>
       })
   }
 

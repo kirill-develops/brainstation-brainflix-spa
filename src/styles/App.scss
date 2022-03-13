@@ -1,5 +1,5 @@
-@use '../styles/partials/variables' as *;
-@use '../styles/partials/breakpoints' as *;
+@use '../styles/partials/variables'as *;
+@use '../styles/partials/breakpoints'as *;
 
 * {
   transition: 0.5s;
@@ -28,7 +28,7 @@ body {
 }
 
 .main__left--desktop {
-  
+
   @include desktop {
     display: inline-block;
     box-sizing: border-box;

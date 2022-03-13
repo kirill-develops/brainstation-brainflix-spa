@@ -1,12 +1,12 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/colors' as *;
-@use '../../styles/partials/breakpoints' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/colors'as *;
+@use '../../styles/partials/breakpoints'as *;
 
 .comment {
   @include divider-top;
   display: flex;
-  padding: $mobile-component-padding 0 ;
+  padding: $mobile-component-padding 0;
 
   @include tablet {
     padding: $tablet-comment-vertical-padding 0 $mobile-component-padding;
@@ -24,15 +24,19 @@
     flex-direction: column;
     align-items: flex-end;
   }
-  
+
   &__avatar {
     @include avatar;
-    
+
     &--blank {
       @include avatar;
       background-color: $mercury;
-    };
-  };
+    }
+
+    ;
+  }
+
+  ;
 
   &__icon {
     margin-top: 25%;
@@ -42,7 +46,7 @@
     border: 1.5px solid $alabaster;
     height: 1.15rem;
     filter: opacity(0.35);
-    
+
     &:hover {
       cursor: pointer;
       background-color: $mercury;
@@ -67,26 +71,33 @@
     @include tablet {
       padding-left: $tablet-comment-vertical-padding;
     }
+
     @include desktop {
       padding-left: $tablet-component-padding;
     }
-  };
+  }
+
+  ;
 
   &__name {
     @include font-subheader;
     margin: 0;
     box-sizing: border-box;
     width: fit-content;
-  };
-  
+  }
+
+  ;
+
   &__date {
     @include font-body;
     color: $silver;
     margin: 0;
     box-sizing: border-box;
     width: fit-content;
-  };
-  
+  }
+
+  ;
+
   &__content {
     @include font-body;
     padding-top: $form-label-space;
@@ -94,5 +105,7 @@
     box-sizing: border-box;
     width: 100%;
     margin: 0;
-  };
+  }
+
+  ;
 }

@@ -1,14 +1,14 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/breakpoints' as *;
-@use '../../styles/partials/color\s' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/breakpoints'as *;
+@use '../../styles/partials/color\s'as *;
 
 .video-info {
-  
+
   &__title {
     @include font-page-header;
     @include element-mobile-padding;
-    @include divider-bottom ;
+    @include divider-bottom;
     padding-left: 0;
     padding-right: 0;
     margin: 0 $mobile-component-padding;
@@ -24,7 +24,7 @@
       padding-left: 0;
     }
   }
-  
+
   &__content {
     @include element-mobile-padding;
     @include font-body;
@@ -32,13 +32,13 @@
     padding-right: $mobile-component-padding;
     margin: 0;
     padding-bottom: 0;
-    
+
     @include tablet {
       @include header-tablet-padding;
       margin: 0;
       padding-bottom: 0;
     }
-    
+
     @include desktop {
       padding-left: 0;
     }

@@ -1,7 +1,7 @@
-@use '../../styles/partials/mixins' as *;
-@use '../../styles/partials/variables' as *;
-@use '../../styles/partials/breakpoints' as *;
-@use '../../styles/partials/color\s' as *;
+@use '../../styles/partials/mixins'as *;
+@use '../../styles/partials/variables'as *;
+@use '../../styles/partials/breakpoints'as *;
+@use '../../styles/partials/color\s'as *;
 
 .upload-page {
   @include divider-top;
@@ -12,14 +12,14 @@
   padding-left: $mobile-component-padding;
   padding-right: $mobile-component-padding;
   padding-bottom: $mobile-component-padding;
-  
+
   @include tablet {
     padding-left: $tablet-component-padding;
     padding-right: $tablet-component-padding;
     padding-bottom: $tablet-component-padding;
     border-width: 2px;
   }
-  
+
   @include desktop {
     padding-left: $desktop-upload-horizontal-padding;
     padding-right: $desktop-upload-horizontal-padding;
@@ -33,7 +33,7 @@
     margin-bottom: 0;
     padding-left: 0;
     padding-right: 0;
-    
+
     @include tablet {
       @include divider-bottom;
       @include header-tablet-padding;
@@ -67,7 +67,7 @@
   }
 
   &__form-block {
-    
+
     @include desktop {
       display: flex;
       flex-direction: column;
@@ -96,18 +96,18 @@
     display: block;
     @include font-label-button;
     color: $secondary-font-color;
-    
+
     @include desktop {
       width: 100%;
       flex: 1.25;
     }
 
-    &--image{
+    &--image {
       @extend .upload-page__label;
       display: inline-flex;
       flex-direction: column;
       width: fit-content;
-      
+
       @include desktop {
         padding-right: 1.5rem;
         flex: 0.5;
@@ -124,7 +124,7 @@
     width: 100%;
     margin-bottom: $mobile-component-padding;
 
-    
+
     &--big {
       @extend .upload-page__input;
       @include form;
@@ -139,7 +139,7 @@
     &--error {
       @extend .upload-page__input;
       border-color: $form-border-error-color;
-      
+
       &:focus {
         border-color: $form-border-error-color;
       }
@@ -148,7 +148,7 @@
 
   &__button-block {
 
-    @include tablet{
+    @include tablet {
       display: flex;
       justify-content: flex-end;
     }
@@ -173,7 +173,7 @@
       order: 2;
       margin-left: $tablet-comment-vertical-padding;
     }
-    
+
     @include desktop {
       margin-left: $tablet-component-padding;
     }

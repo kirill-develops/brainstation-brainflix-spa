@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import heroImage from '../../assets/Images/Upload-video-preview.jpg'
+import Poster from '../../assets/Images/video-upload.png'
+import apiUtils from '../../utils/apiUtils'
 import './UploadPage.scss'
 
 class UploadPage extends Component {
+
   state = {
     videoTitle: "",
     videoDescription: "",
@@ -25,13 +28,24 @@ class UploadPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const { videoTitle, videoDescription } = event.target;
+    const { value: title } = videoTitle;
+    const { value: description } = videoDescription;
 
     if (this.isValueValid()) {
-
-      this.setState({ submitted: true })
-      setTimeout(() => {
-        this.props.history.push("/");
-      }, 8000);
+      apiUtils.postVideo(title, description, Poster)
+        .then((res) => {
+          console.log(res.data.id)
+          const { id } = res.data;
+          this.setState({ submitted: true })
+          setTimeout(() => {
+            this.props.history.push(`video/${id
+              }`);
+          }, 8000);
+        })
+        .catch(err => {
+          console.log(err);
+        })
     } else if (event.target.publish) {
 
       this.setState({ clicked: true });
