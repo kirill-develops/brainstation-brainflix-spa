@@ -30,6 +30,7 @@ class UploadPage extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >;
 
     const { videoTitle, videoDescription } = event.target;
     const { value: title } = videoTitle;
@@ -47,6 +48,7 @@ class UploadPage extends Component {
         })
         .catch(err => {
           console.log(err);
+          return errorMessage;
         })
     } else if (event.target.publish) {
 

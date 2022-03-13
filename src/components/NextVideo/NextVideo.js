@@ -6,7 +6,8 @@ import './NextVideo.scss';
 class NextVideo extends Component {
 
   render() {
-    const { vidArr } = this.props
+
+    const { vidArr } = this.props;
 
     return (
       <div className='next-video'>
@@ -23,10 +24,10 @@ class NextVideo extends Component {
               author={video.channel}
             />
           </Link>
-        )}
+        )};
       </div>
     )
-  }
-}
+  };
+};
 
 export default NextVideo;

@@ -44,6 +44,8 @@
 
     @include desktop {
       @include header-mobile-padding;
+      padding-left: 0;
+      padding-right: 0;
     }
 
     &--submitted {

@@ -1,8 +1,10 @@
 import './VideoBlock.scss';
 
-const VideoBlock = ({poster}) => { 
+const VideoBlock = ({ poster, video }) => {
   return (
-    <video poster={poster} className="video-block" controls></video>
+    <video poster={poster} className="video-block" controls>
+      <source src={video} type="video" />
+    </video>
   );
 };
 

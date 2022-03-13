@@ -3,7 +3,7 @@
 @use '../../styles/partials/breakpoints'as *;
 @use '../../styles/partials/color\s'as *;
 
-.video-info-plus {
+.video-info-highlights {
   @include divider-bottom;
   list-style: none;
   margin: 0 $mobile-component-padding;
@@ -48,7 +48,7 @@
     }
 
     &--special {
-      @extend .video-info-plus__label;
+      @extend .video-info-highlights__label;
       @include font-subheader;
       font-size: 0.8rem;
 
@@ -59,7 +59,7 @@
     }
 
     &--date {
-      @extend .video-info-plus__label;
+      @extend .video-info-highlights__label;
 
       @include tablet {
         order: 2;
@@ -69,7 +69,7 @@
     }
 
     &--views {
-      @extend .video-info-plus__label;
+      @extend .video-info-highlights__label;
 
       @include tablet {
         order: 3;
@@ -79,7 +79,7 @@
     }
 
     &--likes {
-      @extend .video-info-plus__label;
+      @extend .video-info-highlights__label;
 
 
       @include tablet {

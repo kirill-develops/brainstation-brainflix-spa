@@ -11,6 +11,14 @@ class CommentInput extends Component {
     clicked: 0,
   }
 
+  //resets clicked state upon updating active Vid
+  componentDidUpdate(prevProps) {
+    if (this.props !== prevProps) {
+      this.setState({ clicked: 0 });
+    }
+  }
+
+  // updates state of form values as user enters keystrokes
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -23,44 +31,37 @@ class CommentInput extends Component {
     return true;
   }
 
-  // used to trigger red outline on comment field after buttom is pressed but comment field fails validation
+  // trigger red outline on form field after button is clicked but form fails validation
   isCommentValid = () => {
-
-    if (!this.state.commentValue && this.state.clicked > 0) {
-      return false;
-    }
+    if (!this.state.commentValue && this.state.clicked > 0) return false;
     return true;
   }
 
+  // triggered upon comment button click by user
   handleSubmit = (event) => {
     event.preventDefault();
+    const errorMessage = < p > Error fetching data, please try reloading in a few moments</p >;
 
+    // checks if comment value is valid, then does API POST req and updates active Vid state
     if (this.isFormValid()) {
       apiUtils.postVideoComment(this.props.videoId, this.state.nameValue, this.state.commentValue)
         .then((res) => this.props.updateActiveVideoObj(res.data))
         .catch(err => {
           console.log(err);
-          <h2>Please Refresh the screen</h2>;
+          return errorMessage;
         });
       this.setState({ commentValue: "" });
-
     } else {
-      //set focus to comment field
-      event.target.commentValue.focus()
-      const newClick = this.state.clicked + 1
-      this.setState({ clicked: newClick })
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      this.setState({ clicked: 0 })
+      // if comment value not valid, set focus to comment field and update clicked state
+      event.target.commentValue.focus();
+      const newClick = this.state.clicked + 1;
+      this.setState({ clicked: newClick });
     }
   }
 
   render() {
 
-    const { commentSum } = this.props
+    const { commentSum } = this.props;
 
     return (
 
@@ -69,7 +70,6 @@ class CommentInput extends Component {
           className="comment-input__header">
           {commentSum} Comments
         </h3>
-
         <form onSubmit={(event) => this.handleSubmit(event)} className="comment-input__form">
           <img
             htmlFor="userComment"
@@ -80,6 +80,7 @@ class CommentInput extends Component {
           <div className="comment-input__right">
             <label
               htmlFor="userComment"
+              // upon 2nd click w/ errors, produces instructional message for user
               className="comment-input__label">
               JOIN THE CONVERSATION
               {this.state.clicked >= 2 && <p className='comment-input__label--error'
@@ -91,6 +92,7 @@ class CommentInput extends Component {
                 onChange={this.handleChange}
                 value={this.state.commentValue}
                 placeholder="Add a new comment"
+                // check if user has clicked submit & if form is valid, if not adds error class from scss
                 className={`comment-input__field ${!this.isCommentValid() && this.state.clicked ? "comment-input__field--error" : ""}`}
               />
               <button className='comment-input__button comment-input__button-text'>

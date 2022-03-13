@@ -3,9 +3,9 @@ import './CommentList.scss';
 
 const CommentList = ({ commentsArr, videoId, updateActiveVideoObj }) => {
 
+  // sorts comment array by timestamp and then maps values to sorted Comment components
   return (
     <div className="comment-list">
-
       {commentsArr
         .sort((a, b) => b.timestamp - a.timestamp)
         .map(comment => {
