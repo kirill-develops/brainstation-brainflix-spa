@@ -11,6 +11,7 @@
   padding-bottom: 0.37rem;
   margin-left: (-8px);
   border: 1px solid rgba(255, 255, 255, 0);
+  border-radius: $cta-border-radius;
   text-decoration: none;
 
   @include tablet {
@@ -33,10 +34,17 @@
 
   &__right {
     box-sizing: border-box;
-    height: 3.823rem;
+    min-height: 3.823rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  &__status {
+    @include font-label-button;
+    color: $brainFlix-darkBlue;
+    margin: 0;
+    letter-spacing: 0.03rem;
   }
 
   &__title {
@@ -55,7 +63,6 @@
   &:hover {
     cursor: pointer;
     border: 1px solid $mercury;
-    border-radius: $cta-border-radius;
     background-color: $alabaster;
 
     .preview-card__media {
@@ -69,5 +76,15 @@
     .preview-card__author {
       color: $brainFlix-darkBlue !important;
     }
+  }
+
+  &:focus-visible {
+    border: 1px solid $brainFlix-darkBlue;
+    background-color: $alabaster;
+  }
+
+  &--active {
+    border: 1px solid $brainFlix-blue;
+    background-color: rgba($brainFlix-blue, 0.08);
   }
 }

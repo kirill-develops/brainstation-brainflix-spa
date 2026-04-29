@@ -16,4 +16,28 @@
   @include desktop {
     max-height: $media-desktop-max-height;
   }
+
+  &--error {
+    box-sizing: border-box;
+    min-height: 11.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: $mobile-component-padding;
+    color: $white;
+    background:
+      linear-gradient(160deg, rgba($brainFlix-darkBlue, 0.2), transparent),
+      $brainFlix-darkBlack;
+  }
+
+  &__error-title {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  &__error-copy {
+    margin: 0;
+    color: $mercury;
+  }
 }

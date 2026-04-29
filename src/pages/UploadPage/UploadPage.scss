@@ -187,11 +187,26 @@
     @include button;
     @include font-label-button;
     @include button-text;
-    display: block;
+    background-image: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1rem;
     margin-bottom: $mobile-component-padding;
-    background-image: url('../../assets/Icons/publish.svg');
+
+    &::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      background: url('../../assets/Icons/publish.svg') center / contain no-repeat;
+      flex-shrink: 0;
+    }
 
     @include tablet {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       order: 2;
       margin-left: $tablet-comment-vertical-padding;
     }

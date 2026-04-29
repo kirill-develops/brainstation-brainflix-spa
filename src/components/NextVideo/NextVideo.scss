@@ -40,4 +40,10 @@
       color: $silver;
     }
   }
+
+  &__empty {
+    @include font-body;
+    margin: 0;
+    color: $secondary-font-color;
+  }
 }

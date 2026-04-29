@@ -84,23 +84,39 @@
   &__button {
     @include button;
     @include font-label-button;
-    background-image: url('../../assets/Icons/upload.svg');
-    display: flex;
-    flex: 1 1 2;
+    background-image: none;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-top: $mobile-component-padding;
+    order: 3;
+    text-decoration: none;
+    padding: 0 1rem;
+
+    &::before {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      background: url('../../assets/Icons/upload.svg') center / contain no-repeat;
+      flex-shrink: 0;
+    }
 
     @include tablet {
       @include button;
       @include font-label-button;
-      background-image: url('../../assets/Icons/upload.svg');
-      padding: 0 $cta-tablet-horizontal-padding;
+      display: inline-flex;
+      padding: 0 $tablet-component-padding;
       order: 2;
+      width: auto;
+      margin-top: 0;
     }
   }
 
   &__button-text {
     @include font-label-button;
     @include button-text;
+    line-height: 1;
   }
 }

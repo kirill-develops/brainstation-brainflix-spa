@@ -1,8 +1,14 @@
 @use '../styles/partials/variables'as *;
 @use '../styles/partials/breakpoints'as *;
+@use '../styles/partials/colors'as *;
 
-* {
-  transition: 0.5s;
+a,
+button,
+input,
+textarea,
+.preview-card,
+.preview-card__media {
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
 }
 
 html {
@@ -33,5 +39,123 @@ body {
     display: inline-block;
     box-sizing: border-box;
     flex: 1;
+  }
+}
+
+.home-skeleton {
+  width: 100%;
+}
+
+.home-skeleton__video {
+  width: 100%;
+  aspect-ratio: 16/9;
+  max-height: $media-mobile-max-height;
+  background: linear-gradient(90deg, #efefef 20%, #f8f8f8 50%, #efefef 80%);
+  background-size: 220% 100%;
+  animation: skeleton 1.2s ease-in-out infinite;
+
+  @include tablet {
+    max-height: $media-tablet-max-height;
+  }
+
+  @include desktop {
+    max-height: $media-desktop-max-height;
+  }
+}
+
+.home-skeleton__main {
+  padding: $mobile-component-padding;
+  display: flex;
+  flex-direction: column;
+  gap: $mobile-component-padding;
+
+  @include tablet {
+    padding: $tablet-component-padding;
+  }
+
+  @include desktop {
+    flex-direction: row;
+    padding: $tablet-component-padding $desktop-main-horizontal-padding;
+    gap: $tablet-component-padding;
+  }
+}
+
+.home-skeleton__left {
+  flex: 1;
+}
+
+.home-skeleton__right {
+  @include desktop {
+    width: 22rem;
+  }
+}
+
+.home-skeleton__line,
+.home-skeleton__card {
+  border-radius: 0.25rem;
+  background: linear-gradient(90deg, #efefef 20%, #f8f8f8 50%, #efefef 80%);
+  background-size: 220% 100%;
+  animation: skeleton 1.2s ease-in-out infinite;
+}
+
+.home-skeleton__line {
+  height: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.home-skeleton__line--title {
+  height: 2rem;
+  width: 82%;
+}
+
+.home-skeleton__line--meta {
+  width: 66%;
+}
+
+.home-skeleton__line--short {
+  width: 45%;
+}
+
+.home-skeleton__line--comments {
+  margin-top: 1.5rem;
+  width: 38%;
+}
+
+.home-skeleton__card {
+  height: 4.5rem;
+  margin-bottom: 0.75rem;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid $brainFlix-darkBlue;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  a,
+  button,
+  input,
+  textarea,
+  .preview-card,
+  .preview-card__media,
+  .home-skeleton__line,
+  .home-skeleton__card,
+  .home-skeleton__video {
+    transition: none;
+    animation: none;
   }
 }

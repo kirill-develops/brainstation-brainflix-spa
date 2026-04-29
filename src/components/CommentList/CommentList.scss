@@ -1,6 +1,7 @@
 @use "../../styles/partials/mixins"as *;
 @use "../../styles/partials/variables"as *;
 @use "../../styles/partials/breakpoints"as *;
+@use "../../styles/partials/colors"as *;
 
 .comment-list {
   @include divider-bottom;
@@ -17,5 +18,12 @@
     padding-right: 0;
     margin-left: 0;
     border: none;
+  }
+
+  &__empty {
+    @include font-body;
+    margin: 0;
+    padding: $mobile-component-padding 0;
+    color: $secondary-font-color;
   }
 }

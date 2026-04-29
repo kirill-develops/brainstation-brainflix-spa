@@ -80,6 +80,11 @@
 
     &--likes {
       @extend .video-info-highlights__label;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      padding-right: 0;
 
 
       @include tablet {
@@ -90,7 +95,10 @@
       &:hover {
         cursor: pointer;
         color: red;
+      }
 
+      &:focus-visible {
+        color: $brainFlix-darkBlue;
       }
     }
   }

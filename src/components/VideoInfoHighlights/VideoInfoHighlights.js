@@ -20,15 +20,17 @@ const VideoInfoHighlights = ({ id, timestamp, channel, updateLike, views, likes,
         {views}
       </h4>
       <h4 className="video-info-highlights__label--date">{relDate}</h4>
-      <h4
+      <button
+        type="button"
         onClick={handleClick}
-        className="video-info-highlights__label--likes">
+        className="video-info-highlights__label--likes"
+        aria-pressed={isLiked}>
         <img
           className='video-info-highlights__icon'
           // decides which Likes img to post based on isLiked state
           alt="likes icon" src={isLiked ? likedLogo : likesLogo} />
         {likes}
-      </h4>
+      </button>
     </div>
   )
 }
